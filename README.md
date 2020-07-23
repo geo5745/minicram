@@ -1,0 +1,2 @@
+# minicram
+Osmo - Quizlet Clone
