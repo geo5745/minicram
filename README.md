@@ -1,2 +1,2 @@
 # minicram
-Osmo - Quizlet Clone
+Quizlet-Clone
