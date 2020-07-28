@@ -1,0 +1,40 @@
+.header {
+    background-color: #4256b1;
+    height: 66px;
+    display: flex;
+    color: white;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+
+}
+
+.header-nav {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 10pt;
+}
+
+.header-buttons {
+
+}
+
+.header-nav-logo {
+    font-size: 18pt;
+    font-weight: bold;
+    padding: 0px 40px;
+}
+
+.header-nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; 
+
+}
+
+.header-nav-list > li {
+    padding: 0px 20px;
+}

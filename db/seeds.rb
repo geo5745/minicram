@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+dob = "19841013".to_date
+User.create(username: "george", password: "espress0", birthday: dob, email:"g.rodnikov@gmail.com")

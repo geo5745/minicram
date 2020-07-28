@@ -5,6 +5,6 @@ import ReactDOM from 'react-dom';
 document.addEventListener("DOMContentLoaded",()=>{
     
     const root = document.getElementById("root")
-    ReactDOM.render(<h1>Hello, World! --minicram</h1>,root)
+    ReactDOM.render(<><p></p><h1>Hello, World! --minicram - a Quizlet Clone</h1></>,root)
 
 });

@@ -1,27 +1,25 @@
 class Api::SessionsController < ApplicationController
-
-    def new
-        render :new
-    end
+    protect_from_forgery except: [:create, :destroy]
 
     def create
         username = params[:user][:username]
         password = params[:user][:password]
-        user = User.find_by_credentials(username,password)
-        if user
-            session[:session_token] = user.reset_session_token!
-            # render user in jbuilder?
+        @user = User.find_by_credentials(username,password)
+        if @user
+            login!(@user)
+            render 'api/users/show'
         else
-            #errors
+            render json: ["Invalid Credentials"], status: 401
         end
     end
 
     def destroy
-        current_user.reset_session_token!
-        session[:session_token] = nil
-        # redirect to index?
+        if current_user
+            logout!
+            render json: {}
+          else
+            render json: ['Could not locate user'], status: 404
+          end
     end
-
-
 
 end
