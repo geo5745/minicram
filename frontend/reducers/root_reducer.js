@@ -4,6 +4,6 @@ import sessionReducer from './session_reducer';
 
 export default combineReducers({
     users: usersReducer,
-    session: sessionReducer
+    //session: sessionReducer
 });
 

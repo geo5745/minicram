@@ -9,31 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    
-    <header class="header">
-      <nav class="header-nav">
-          <h1 class="header-nav-logo">minicram</h1>
-          <ul class="header-nav-list">
-            <li><a href="#"></a><i class="fa fa-search" aria-hidden="true"></i>  Search</li>
-            <li><a href="#"></a><i class="fa fa-bars" aria-hidden="true"></i>  Browse</li>
-            <li><a href="#"></a><i class="fa fa-clone" aria-hidden="true"></i>  Create</li>
-          </ul>
-        </nav>
-        <div class="header-buttons">Buttons</div>
-    </header>
-
-    <div class="login-visible">
-      <form>
-        <button>Close</button>
-        <label for="username">Username:</label>
-        <input id = "username" type="text">
-        <label for="password">Password:</label>
-        <input id ="password" type="password">
-        <input type="submit">
-      </form>
-    </div>
-    
+  <body>    
     <%= yield %>
   </body>
 </html>

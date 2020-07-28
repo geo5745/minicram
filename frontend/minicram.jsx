@@ -1,10 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import configureStore from './store/store.js';
+import Root from './components/root';
 
 
 document.addEventListener("DOMContentLoaded",()=>{
-    
+    const store = configureStore();
+
+    //testing
+    window.store = store;
+
     const root = document.getElementById("root")
-    ReactDOM.render(<><p></p><h1>Hello, World! --minicram - a Quizlet Clone</h1></>,root)
+    ReactDOM.render(<Root store={store}/>,root)
 
 });
