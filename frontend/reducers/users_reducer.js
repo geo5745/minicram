@@ -6,10 +6,6 @@ const usersReducer = (state = {},action) => {
     switch (action.type) {
         case RECEIVE_USER:
             return merge({}, state, {[action.user.id] : action.user});
-        case LOGOUT_USER:
-            const newState = merge({},state);
-            delete newState[action.userId];
-            return newState
         default:
             return state;
     }

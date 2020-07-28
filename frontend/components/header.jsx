@@ -1,12 +1,18 @@
 import React from 'react';
+import LoginFormContainer from './login_form_container'
 
 class Header extends React.Component {
     constructor(props) {
         super(props)
     }
 
+    componentDidMount() {
+
+    }
+
     render() {
         return (
+            <>
             <header className="header">
                 <nav className="header-nav">
                     <h1 className="header-nav-logo">minicram</h1>
@@ -16,8 +22,13 @@ class Header extends React.Component {
                         <li><a href="#"></a><i className="fa fa-clone" aria-hidden="true"></i>  Create</li>
                     </ul>
                 </nav>
-                <div className="header-buttons">Buttons</div>
+                <div className="header-buttons">
+                    <button onClick={this.props.openLogin}>Login</button>
+                    <button onClick={this.props.openSignup}>Sign Up</button>
+                </div>
             </header>
+            {this.props.ui.login ? <LoginFormContainer/> : <></>}
+            </>
     )}
 
 

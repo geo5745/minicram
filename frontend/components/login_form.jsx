@@ -27,22 +27,43 @@ class LoginForm extends React.Component {
         this.props.login(userObject);
     }
 
+    componentWillUnmount() {
+        this.setState({
+            username: '',
+            password: ''
+    })
+
+    }
+
+
     closeForm() {
-        this.setState({popupClass: "login-invisible"})
+        //this.setState({popupClass: "login-invisible"})
+        this.props.closeLogin();
     }
 
     render() {
+        let usernameError = (<p></p>);
+        let passwordError = (<p></p>);
+        if (this.props.errors.username) {
+            usernameError = (<p>{this.props.errors.username}</p>);
+        }
+        if (this.props.errors.password) {
+            passwordError = (<p>{this.props.errors.password}</p>);
+        }
         return(
             <div className={this.state.popupClass}>
-                <form onSubmit = {this.handleSubmit}>
+                <div className = "form-container">
                     <button onClick={this.closeForm}>Close</button>
+                <form onSubmit = {this.handleSubmit}>
                     <label htmlFor="username">Username:</label>
                         <input onChange = {this.update("username")} value = {this.state.username} id = "username" type="text"/>
+                        {usernameError}
                     <label htmlFor="password">Password:</label>
                         <input onChange = {this.update("password")} value = {this.state.password} id ="password" type="password"/>
-                    <button>Logout</button>
+                        {passwordError}
                     <input type="submit"/>
                 </form>
+                </div>
             </div>
     )}
 

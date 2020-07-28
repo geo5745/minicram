@@ -1,11 +1,10 @@
 import React from 'react';
-import Header from './header';
-import LoginFormContainer from './login_form_container';
+import HeaderContainer from './header_container';
+
 
 const App = () => (
     <>
-        <Header/>
-        <LoginFormContainer/>
+        <HeaderContainer/>
         <p>Hello World! This is minicram - a Quizlet Clone</p>
     </>
 );

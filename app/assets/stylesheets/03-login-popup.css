@@ -13,12 +13,31 @@
     bottom: 0;
     background-color: rgba(0,0,0,0.5); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
    
 }
 
+.form-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 5%;
+    left: 30%;
+    padding:10px;
+    height: 90%;
+    width: 40%;
+    background-color: white;
+}
+
+
+.form-container > form {  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
  
-.login-visible > form {  
+/* .login-visible > form {  
     position: relative;
     display: flex;
     flex-direction: column;
@@ -30,14 +49,14 @@
     width: 40%;
     background-color: white;
 
-}
+} */
 
-.login-visible > form > input[type="text"] {  
+.form-container input[type="text"] {  
     display:block;
     background-color: #f5f4f6;
 }
 
-.login-visible > form > input[type="password"] { 
+.form-container input[type="password"] { 
     display:block; 
     background-color: #f5f4f6;
 }

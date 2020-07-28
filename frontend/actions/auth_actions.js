@@ -2,6 +2,7 @@ import * as authUtil from '../util/auth_ajax';
 
 export const RECEIVE_USER = "RECEIVE_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
+export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 const receiveUser = (user) => {
     return {
@@ -10,20 +11,30 @@ const receiveUser = (user) => {
     }
 }
 
-const logoutUser = (userId) => {
+const logoutUser = () => {
     return {
-        type: LOGOUT_USER,
-        userId
+        type: LOGOUT_USER
     }
 }
+
+export const receiveErrors = (errors = {}) => {
+    return {
+        type: RECEIVE_ERRORS,
+        errors
+    }
+};
 
 
 export const login = user => dispatch => {
     return authUtil.login(user)
         .then(user => dispatch(receiveUser(user)))
+        .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
 };
 
-export const logout = userId => dispatch => {
-    return authUtil.logout(userId)
-        .then(user => dispatch(logoutUser(user)))
+export const logout = () => dispatch => {
+    return authUtil.logout()
+        .then(() => dispatch(logoutUser()))
+        .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
 };
+
+window.logout = logout;
