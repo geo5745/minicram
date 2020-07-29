@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {openLogin, closeLogin, openSignup, closeSignup} from '../actions/ui_actions';
-import Header from './Header';
+import Header from './header';
 
 const mapStateToProps = (state) => ({
     ui: state.ui,
