@@ -24,15 +24,21 @@ class LoginForm extends React.Component {
             password: this.state.password
         }
         this.props.login(userObject);
-        this.closeForm();
+        //this.closeForm();
     }
 
     componentWillUnmount() {
         this.setState({
             username: '',
             password: ''
-        })
+        });
+        this.props.clearAllErrors();
+    }
 
+    componentDidUpdate() {
+        if (this.props.session.id) {
+            this.closeForm();
+        }
     }
 
     closeForm() {

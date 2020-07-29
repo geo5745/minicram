@@ -1,4 +1,4 @@
-import {RECEIVE_USER,LOGOUT_USER, RECEIVE_ERRORS} from '../actions/auth_actions';
+import {RECEIVE_USER,LOGOUT_USER, RECEIVE_ERRORS, CLEAR_ERRORS} from '../actions/auth_actions';
 import {merge} from 'lodash';
 
 const initialState = {  username: null,
@@ -13,6 +13,8 @@ const errorsReducer = (state = initialState,action) => {
             return initialState;   
         case RECEIVE_ERRORS:
             return merge({},initialState, action.errors);
+        case CLEAR_ERRORS:
+            return initialState;
         default:
             return state;
     }

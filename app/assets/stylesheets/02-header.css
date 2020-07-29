@@ -6,8 +6,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    
-
 }
 
 .header-nav {
@@ -31,12 +29,23 @@
     padding: 10px 20px;
     background-color: #3BCFCF;
     transition: background-color 0.25s;
-
 }
 
 #signup:hover {
     background-color: #28a7a7;
 }
+
+#logout {
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: goldenrod;
+    color: black;
+    transition: background-color 0.25s;}
+
+#logout:hover {
+    background-color: darkgoldenrod;
+    }
+
 
 .header-buttons > button {
     padding: 15px;

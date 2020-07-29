@@ -1,5 +1,6 @@
 import React from 'react';
 import {getAllDays,getAllMonths,getAllYears,getMonthFromString} from '../util/date_util'
+import {debounce} from 'lodash';
 
 class SignupForm extends React.Component {
     constructor(props) {
@@ -10,11 +11,13 @@ class SignupForm extends React.Component {
                         birthyear: '',
                         username: '',
                         email: '',
-                        password: ''
+                        password: '',
+                        passwordError: ''
                     }
         this.closeForm = this.closeForm.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        }
+        this.timerId = null;
+    }
 
     update(field) {
         return e => {
@@ -36,7 +39,7 @@ class SignupForm extends React.Component {
 
         }
         this.props.signup(userObject);
-        this.closeForm();
+        //this.closeForm();
     }
 
     componentWillUnmount() {
@@ -47,8 +50,14 @@ class SignupForm extends React.Component {
             username: '',
             email: '',
             password: ''
-        })
+        });
+        this.props.clearAllErrors();
+    }
 
+    componentDidUpdate() {
+        if (this.props.session.id) {
+            this.closeForm();
+        }
     }
 
     closeForm() {
@@ -56,7 +65,45 @@ class SignupForm extends React.Component {
         
     }
 
+    
+
+    
+
+    handleUpdate() {
+        return value => {
+            this.setState({"password" : value});
+            console.log(this.state.password);
+        }
+    }
+
+    debouncedUpdate() {
+        debounce(value => handleUpdate(value), 500);
+    }
+
+    deboucedUpdatePassword(value) {
+        this.setState({password: value});
+        if (this.timerId) {
+            clearTimeout(this.timerId);
+        }
+        this.timerId = setTimeout(() => {
+            if (value.length < 8) {
+                this.setState({passwordError: "YOUR PASSWORD IS TOO SHORT"});
+            } else {
+                this.setState({passwordError: ''})
+            }
+        },500)
+        
+
+            // e.persist();    
+            // this.setState({"password" : e.target.value});
+            // debounce(this.passwordCheck,500);
+            // console.log(this.state.password);
+    }
+
+    
+
     render() {
+        //debugger
         let birthdayError = (<p></p>);
         let usernameError = (<p></p>);
         let emailError = (<p></p>);
@@ -64,8 +111,8 @@ class SignupForm extends React.Component {
         if (this.props.errors.username) {
             usernameError = (<p>{this.props.errors.username}</p>);
         }
-        if (this.props.errors.password) {
-            passwordError = (<p>{this.props.errors.password}</p>);
+        if (this.state.passwordError.length > 0) {
+            passwordError = (<p>{this.state.passwordError}</p>);
         }
 
         const allDays = getAllDays();
@@ -117,7 +164,7 @@ class SignupForm extends React.Component {
                     <input onChange = {this.update("email")} value = {this.state.email} id = "email" type="email"/>
                     {passwordError}
                     <label htmlFor="password">Password:</label>
-                    <input onChange = {this.update("password")} value = {this.state.password} id ="password" type="password"/>
+                    <input onChange = {({target: {value}} ) => this.deboucedUpdatePassword(value) } value={this.state.password} id ="password" type="password"/>
                     <input type="submit"/>
                 </form>
                 </div>

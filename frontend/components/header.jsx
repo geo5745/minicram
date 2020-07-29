@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginFormContainer from './login_form_container';
 import SignupFormContainer from './signup_form_container';
+import { logout } from '../actions/auth_actions';
 
 class Header extends React.Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class Header extends React.Component {
         let currentUsername = '';
         const loginButton = (<button onClick={this.props.openLogin}>Log in</button>);
         const signupButton = (<button id="signup" onClick={this.props.openSignup}>Sign up</button>);
+        const logoutButton = (<button id="logout" onClick={this.props.logout}>Log out</button>);
         if (id) {
             currentUsername = (<p>{this.props.users[id].username}</p>);
         }
@@ -32,6 +34,7 @@ class Header extends React.Component {
                 </nav>
                 <div className="header-buttons">
                     {currentUsername}
+                    {id ? logoutButton : <></>}
                     {id ? <></> : loginButton}
                     {id ? <></> : signupButton}
                 </div>
