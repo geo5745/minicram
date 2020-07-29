@@ -1,6 +1,5 @@
 import {connect} from 'react-redux';
-import {signup, clearAllErrors} from '../actions/auth_actions';
-import {closeLogin} from '../actions/ui_actions';
+import {signup, clearAllErrors, checkEmail} from '../actions/auth_actions';
 import SignupForm from './signup_form';
 
 const mapStateToProps = (state) => ({
@@ -11,7 +10,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     signup: user => dispatch(signup(user)),
     closeSignup: () => dispatch(closeSignup()),
-    clearAllErrors: () => dispatch(clearAllErrors())
+    clearAllErrors: () => dispatch(clearAllErrors()),
+    checkEmail: email => dispatch(checkEmail(email))
+
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(SignupForm);

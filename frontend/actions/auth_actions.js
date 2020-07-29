@@ -54,4 +54,10 @@ export const clearAllErrors = () => dispatch => {
     return dispatch(clearErrors())
 };
 
+export const checkEmail = (email) => dispatch => {
+    return authUtil.checkEmail(email)
+        .then(errors => dispatch(receiveErrors(errors)))
+}
+
 window.logout = logout;
+window.checkEmail = checkEmail;

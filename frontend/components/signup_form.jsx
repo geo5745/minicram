@@ -1,18 +1,21 @@
 import React from 'react';
-import {getAllDays,getAllMonths,getAllYears,getMonthFromString} from '../util/date_util'
-import {debounce} from 'lodash';
+import {getAllDays,getAllMonths,getAllYears,getMonthFromString, isValidDate} from '../util/date_util'
+import {isValidEmail} from '../util/auth_util'
 
 class SignupForm extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {  birthdate: '',
-                        birthmonth: '',
-                        birthyear: '',
+        this.state = {  birthdate: 'Day',
+                        birthmonth: 'Month',
+                        birthyear: 'Year',
+                        birthday: null,
                         username: '',
                         email: '',
                         password: '',
-                        passwordError: ''
+                        passwordError: 'PASSWORD',
+                        birthdayError: 'BIRTHDAY',
+                        emailError: 'EMAIL'
                     }
         this.closeForm = this.closeForm.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,17 +42,20 @@ class SignupForm extends React.Component {
 
         }
         this.props.signup(userObject);
-        //this.closeForm();
     }
 
     componentWillUnmount() {
         this.setState({
-            birthdate: '',
-            birthmonth: '',
-            birthyear: '',
+            birthdate: 'Day',
+            birthmonth: 'Month',
+            birthyear: 'Year',
+            birthday: null,
             username: '',
             email: '',
-            password: ''
+            password: '',
+            passwordError: 'PASSWORD',
+            birthdayError: 'BIRTHDAY',
+            emailError: 'EMAIL'
         });
         this.props.clearAllErrors();
     }
@@ -64,21 +70,7 @@ class SignupForm extends React.Component {
         this.props.closeSignup();
         
     }
-
     
-
-    
-
-    handleUpdate() {
-        return value => {
-            this.setState({"password" : value});
-            console.log(this.state.password);
-        }
-    }
-
-    debouncedUpdate() {
-        debounce(value => handleUpdate(value), 500);
-    }
 
     deboucedUpdatePassword(value) {
         this.setState({password: value});
@@ -89,21 +81,52 @@ class SignupForm extends React.Component {
             if (value.length < 8) {
                 this.setState({passwordError: "YOUR PASSWORD IS TOO SHORT"});
             } else {
-                this.setState({passwordError: ''})
+                this.setState({passwordError: 'INVALID EMAIL ADDRESS'})
             }
-        },500)
-        
+        },1000)
+    }
 
-            // e.persist();    
-            // this.setState({"password" : e.target.value});
-            // debounce(this.passwordCheck,500);
-            // console.log(this.state.password);
+    handleDate(field, value) {
+        this.setState({[field]: value});
+        if (this.timerId) {
+            clearTimeout(this.timerId);
+        }
+        this.timerId = setTimeout(() => {
+            let userYear = parseInt(this.state.birthyear);
+            let userMonth = getMonthFromString(this.state.birthmonth);
+            let userDay = parseInt(this.state.birthdate);
+            let dateValid = isValidDate(userYear,userMonth,userDay);
+            //debugger
+            if (this.state.birthdate === "Day" || this.state.birthmonth === "Month" || this.state.birthyear === "Year") {
+                this.setState({birthdayError: "PLEASE ENTER YOUR BIRTHDAY"});
+            } else if (dateValid) { 
+                let userBirthday = new Date(userYear,userMonth,userDay);
+                this.setState({birthday: userBirthday});
+                this.setState({birthdayError: "BIRTHDAY"});
+            } else {
+                this.setState({birthdayError: "PLEASE ENTER A VALID DATE"});     
+            }
+        },1000)
+    }
+
+    handleEmail(email) {
+        this.setState({email: email})
+        if (this.timerId) {
+            clearTimeout(this.timerId);
+        }
+        this.timerId = setTimeout(() => {
+            if (!isValidEmail(email)) {
+                this.setState({emailError: "INVALID EMAIL ADDRESS"})
+            } else {
+                this.setState({emailError: "EMAIL"})
+                this.props.checkEmail(email);
+            }
+
+        },1000)
     }
 
     
-
     render() {
-        //debugger
         let birthdayError = (<p></p>);
         let usernameError = (<p></p>);
         let emailError = (<p></p>);
@@ -113,6 +136,14 @@ class SignupForm extends React.Component {
         }
         if (this.state.passwordError.length > 0) {
             passwordError = (<p>{this.state.passwordError}</p>);
+        }
+        if (this.state.birthdayError.length>0) {
+            birthdayError = (<p>{this.state.birthdayError}</p>);
+        }
+        if (this.props.errors.email) {
+            emailError = (<p>{this.props.errors.email}</p>);
+        } else if (this.state.emailError.length >0) {
+            emailError = (<p>{this.state.emailError}</p>)
         }
 
         const allDays = getAllDays();
@@ -131,24 +162,23 @@ class SignupForm extends React.Component {
                     <h1>Sign Up</h1>
                     <form onSubmit = {this.handleSubmit}>
                         {birthdayError}
-                        <label>Birthday:</label>
                         <table>
                             <tbody>
                             <tr>
                                 <td>
-                                    <select onChange={this.update("birthdate")} value={this.state.birthdate} id="birthdate">
-                                        <option value="Day">Day</option>
-                                        {dayOptions}
-                                    </select>
-                                </td>
-                                <td>
-                                    <select onChange={this.update("birthmonth")} value={this.state.birthmonth} id="birthmonth">
+                                    <select onChange={({target: {value}} ) => this.handleDate("birthmonth",value)} id="birthmonth">
                                         <option value="Month">Month</option>
                                         {monthOptions}
                                     </select>   
                                 </td>
                                 <td>
-                                    <select onChange={this.update("birthyear")} value={this.state.birthyear} id="birthyear">
+                                    <select onChange={({target: {value}} ) => this.handleDate("birthdate",value)} id="birthdate">
+                                        <option value="Day">Day</option>
+                                        {dayOptions}
+                                    </select>
+                                </td>
+                                <td>
+                                    <select onChange={({target: {value}} ) => this.handleDate("birthyear",value)} id="birthyear">
                                         <option value="Year">Year</option>
                                         {yearOptions}
                                     </select>  
@@ -160,10 +190,8 @@ class SignupForm extends React.Component {
                     <label htmlFor="username">Username:</label>
                     <input onChange = {this.update("username")} value = {this.state.username} id = "username" type="text"/>
                     {emailError}
-                    <label htmlFor="email">Email:</label>
-                    <input onChange = {this.update("email")} value = {this.state.email} id = "email" type="email"/>
-                    {passwordError}
-                    <label htmlFor="password">Password:</label>
+                    <input onChange = {({target: {value}} ) => this.handleEmail(value)} value = {this.state.email} id = "email" type="email"/>
+                    {passwordError} 
                     <input onChange = {({target: {value}} ) => this.deboucedUpdatePassword(value) } value={this.state.password} id ="password" type="password"/>
                     <input type="submit"/>
                 </form>

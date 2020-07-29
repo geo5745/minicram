@@ -3,3 +3,22 @@ html, body {
     background-color: #f5f4f6;
 }
 
+
+
+input[type="text"] {
+    border-bottom: 2px solid black;
+    transition: 0.1s;
+}
+
+input[type="password"] {
+    border-bottom: 2px solid black;
+    transition: 0.1s;
+}
+
+input[type="text"]:hover {
+    border-bottom: 3px solid gold;
+}
+
+input[type="password"]:hover {
+    border-bottom: 3px solid gold;
+}

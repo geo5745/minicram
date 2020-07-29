@@ -4,8 +4,9 @@ import configureStore from './store/store.js';
 import Root from './components/root';
 
 // testing
-import {logout} from './actions/auth_actions';
+import {logout, checkEmail} from './actions/auth_actions';
 import {openLogin, closeLogin, openSignup, closeSignup} from './actions/ui_actions';
+
 
 
 document.addEventListener("DOMContentLoaded",()=>{

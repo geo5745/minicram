@@ -24,4 +24,11 @@ export const getAllDays = () => {
     return result;
 }
 
+export const isValidDate = (year,month,day) => {
+    const date = new Date(year, (+month-1), day);
+    const isValid = (Boolean(+date) && date.getDate() == day);
+    return isValid;
+}
 
+// let x = getMonthFromString("Month");
+// console.log(isValidDate(2020,x,12));

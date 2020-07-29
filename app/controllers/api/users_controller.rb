@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController
+    protect_from_forgery except: [:validate_email]
 
     def index
         @users = User.all
@@ -16,6 +17,13 @@ class Api::UsersController < ApplicationController
             render 'api/users/show'
         else
             render json: @user.errors.full_messages, status: 401
+        end
+    end
+
+    def validate_email
+        @user = User.find_by(email: params[:email])
+        if @user
+            render 'api/users/email_taken'
         end
     end
 
