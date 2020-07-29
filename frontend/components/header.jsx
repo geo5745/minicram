@@ -1,7 +1,6 @@
 import React from 'react';
 import LoginFormContainer from './login_form_container';
 import SignupFormContainer from './signup_form_container';
-import AuthButtons from './auth_buttons';
 
 class Header extends React.Component {
     constructor(props) {
