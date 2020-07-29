@@ -1,5 +1,7 @@
 import React from 'react';
-import LoginFormContainer from './login_form_container'
+import LoginFormContainer from './login_form_container';
+import SignupFormContainer from './signup_form_container';
+import AuthButtons from './auth_buttons';
 
 class Header extends React.Component {
     constructor(props) {
@@ -11,6 +13,13 @@ class Header extends React.Component {
     }
 
     render() {
+        let {id} = this.props.session;
+        let currentUsername = '';
+        const loginButton = (<button onClick={this.props.openLogin}>Log in</button>);
+        const signupButton = (<button id="signup" onClick={this.props.openSignup}>Sign up</button>);
+        if (id) {
+            currentUsername = (<p>{this.props.users[id].username}</p>);
+        }
         return (
             <>
             <header className="header">
@@ -23,11 +32,13 @@ class Header extends React.Component {
                     </ul>
                 </nav>
                 <div className="header-buttons">
-                    <button onClick={this.props.openLogin}>Login</button>
-                    <button onClick={this.props.openSignup}>Sign Up</button>
+                    {currentUsername}
+                    {id ? <></> : loginButton}
+                    {id ? <></> : signupButton}
                 </div>
-            </header>
+            </header>   
             {this.props.ui.login ? <LoginFormContainer/> : <></>}
+            {this.props.ui.signup ? <SignupFormContainer/> : <></>}
             </>
     )}
 

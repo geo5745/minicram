@@ -4,8 +4,7 @@ class LoginForm extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {  popupClass: "login-visible",
-                        username: '',
+        this.state = {  username: '',
                         password: ''
                     }
         this.closeForm = this.closeForm.bind(this);
@@ -25,19 +24,18 @@ class LoginForm extends React.Component {
             password: this.state.password
         }
         this.props.login(userObject);
+        this.closeForm();
     }
 
     componentWillUnmount() {
         this.setState({
             username: '',
             password: ''
-    })
+        })
 
     }
 
-
     closeForm() {
-        //this.setState({popupClass: "login-invisible"})
         this.props.closeLogin();
     }
 
@@ -51,9 +49,10 @@ class LoginForm extends React.Component {
             passwordError = (<p>{this.props.errors.password}</p>);
         }
         return(
-            <div className={this.state.popupClass}>
+            <div className="login-visible">
                 <div className = "form-container">
                     <button onClick={this.closeForm}>Close</button>
+                    <h1>Log in</h1>
                 <form onSubmit = {this.handleSubmit}>
                     <label htmlFor="username">Username:</label>
                         <input onChange = {this.update("username")} value = {this.state.username} id = "username" type="text"/>

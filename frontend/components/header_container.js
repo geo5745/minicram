@@ -3,7 +3,9 @@ import {openLogin, closeLogin, openSignup, closeSignup} from '../actions/ui_acti
 import Header from './Header';
 
 const mapStateToProps = (state) => ({
-    ui: state.ui
+    ui: state.ui,
+    session: state.session,
+    users: state.users
 });
 
 const mapDispatchToProps = (dispatch) => ({

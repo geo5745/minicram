@@ -19,8 +19,30 @@
 }
 
 .header-buttons {
+    padding-right:100px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 9pt;
+}
+
+#signup {
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: #3BCFCF;
+    transition: background-color 0.25s;
 
 }
+
+#signup:hover {
+    background-color: #28a7a7;
+}
+
+.header-buttons > button {
+    padding: 15px;
+    
+}
+
 
 .header-nav-logo {
     font-size: 18pt;

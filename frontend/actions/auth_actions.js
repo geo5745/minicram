@@ -1,4 +1,4 @@
-import * as authUtil from '../util/auth_ajax';
+import * as authUtil from '../util/auth_util';
 
 export const RECEIVE_USER = "RECEIVE_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
@@ -36,5 +36,11 @@ export const logout = () => dispatch => {
         .then(() => dispatch(logoutUser()))
         .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
 };
+
+export const signup = user => dispatch => {
+    return authUtil.signup(user)
+        .then(user => dispatch(receiveUser(user)))
+        .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
+}
 
 window.logout = logout;

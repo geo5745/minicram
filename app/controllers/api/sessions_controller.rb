@@ -1,5 +1,5 @@
 class Api::SessionsController < ApplicationController
-    protect_from_forgery except: [:create, :destroy]
+    #protect_from_forgery except: [:create, :destroy]
 
     def create
         @username = params[:user][:username]
