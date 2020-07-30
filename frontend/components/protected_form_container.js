@@ -13,7 +13,8 @@ const mapDispatchToProps = (dispatch) => ({
     closeSignup: () => dispatch(closeSignup()),
     clearAllErrors: () => dispatch(clearAllErrors()),
     checkEmail: email => dispatch(checkEmail(email)),
-    checkUsername: username => dispatch(checkUsername(username))
+    checkUsername: username => dispatch(checkUsername(username)),
+    openLogin: () => dispatch(openLogin())
 
 });
 

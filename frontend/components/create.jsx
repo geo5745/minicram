@@ -18,7 +18,13 @@ class Create extends React.Component{
 
     render() {
         return (
-            <p>Create Auth Route</p>
+            <div className="sidebar">
+                <button>Home</button>
+                <button>Premium Content</button>
+                <button>Refer a Friend</button>
+                <button>Settings</button>
+            </div>
+            
         )
     }
 }
