@@ -71,6 +71,26 @@
     transition: 0.1s;
 }
 
+.approved-border {
+    border: 2px solid green;
+    transition: 0.1s;
+}
+
+.error-border {
+    border: 2px solid red;
+    transition: 0.1s;
+}
+
+.approved-text {
+    color: green;
+    transition: 0.1s;
+}
+
+.error-text {
+    color:red;
+    transition: 0.1s;
+}
+
 .form-container input::placeholder {
     color: silver;
 }
@@ -125,7 +145,7 @@ input[type="password"] {
 .form-container input[type="text"]:focus, 
 input[type="email"]:focus,
 input[type="password"]:focus,
-select {  
+select:focus {  
     border: 2px solid gold;
 }
 

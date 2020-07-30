@@ -25,7 +25,8 @@ class SignupForm extends React.Component {
                         passwordErrorId: '',
                         usernameBorderId: '',
                         emailBorderId: '',
-                        passwordBorderId: ''
+                        passwordBorderId: '',
+                        buttonDisabled: 'disabled'
                     }
         this.closeForm = this.closeForm.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -71,14 +72,22 @@ class SignupForm extends React.Component {
             passwordErrorId: '',
             usernameBorderId: '',
             emailBorderId: '',
-            passwordBorderId: ''
+            passwordBorderId: '',
+            buttonDisabled: 'disabled',
         });
         this.props.clearAllErrors();
     }
 
-    componentDidUpdate() {
-        if (this.props.session.id) {
-            this.closeForm();
+    componentDidUpdate(prevProps) {
+        if (this.props.errors.email && prevProps.errors.email !== this.props.errors.email) {
+            this.setState({emailError: this.props.errors.email});
+            this.setState({emailErrorId: 'error-text'});
+            this.setState({emailBorderId: 'error-border'});
+        }
+        if (this.props.errors.username && prevProps.errors.username !== this.props.errors.username) {
+            this.setState({usernameError: this.props.errors.username});;
+            this.setState({usernameErrorId: 'error-text'});
+            this.setState({usernameBorderId: 'error-border'});
         }
     }
 
@@ -101,10 +110,10 @@ class SignupForm extends React.Component {
 
             } else {
                 this.setState({passwordError: 'PASSWORD'});
-                this.setState({passwordErrorId: "approved-text"});
+                this.setState({passwordErrorId: ""});
                 this.setState({passwordBorderId: "approved-border"});
             }
-        },1000)
+        },500)
     }
 
     handleDate(field, value) {
@@ -119,17 +128,31 @@ class SignupForm extends React.Component {
             let dateValid = isValidDate(userYear,userMonth,userDay);
             if (this.state.birthdate === "Day" || this.state.birthmonth === "Month" || this.state.birthyear === "Year") {
                 this.setState({birthdayError: "PLEASE ENTER YOUR BIRTHDAY"});
-            } else if (dateValid) { 
+                this.setState({birthdayBorderId: "error-border"});
+                this.setState({birthdayErrorId: "error-text"});
+            } else if (!dateValid) { 
+                this.setState({birthdayError: "PLEASE ENTER A VALID DATE"});
+                this.setState({birthdayBorderId: "error-border"});
+                this.setState({birthdayErrorId: "error-text"}); 
+            }  else  {
                 let userBirthday = new Date(userYear,userMonth,userDay);
                 this.setState({birthday: userBirthday});
                 let currentAge = findAge(userBirthday);
                 this.setState({userAge: currentAge});
                 this.setState({birthdayError: "BIRTHDAY"});
-                if (currentAge < 13) this.setState({emailError: "PARENT'S EMAIL"});
-            } else {
-                this.setState({birthdayError: "PLEASE ENTER A VALID DATE"});  
+                this.setState({birthdayBorderId: "approved-border"});
+                this.setState({birthdayErrorId: ""});
+                if (currentAge < 13) {
+                    this.setState({emailError: "PARENT'S EMAIL"});
+                    this.setState({emailErrorId: ''});
+                    this.setState({emailBorderId: ''});
+                } else {
+                    this.setState({emailError: "EMAIL"});
+                    this.setState({emailErrorId: ''});
+                    this.setState({emailBorderId: ''});
+                }
             }
-        },1000)
+        },1500)
     }
 
     handleEmail(email) {
@@ -138,17 +161,22 @@ class SignupForm extends React.Component {
             clearTimeout(this.timerId);
         }
         this.timerId = setTimeout(() => {
+            this.props.checkEmail(email.toLowerCase());
             if (!isValidEmail(email)) {
                 this.setState({emailError: "INVALID EMAIL ADDRESS"});
+                this.setState({emailErrorId: 'error-text'});
+                this.setState({emailBorderId: 'error-border'});
             } else if (this.state.userAge < 13) {
                 this.setState({emailError: "PARENT'S EMAIL"});
-                this.props.checkEmail(email);
+                this.setState({emailErrorId: ''});
+                this.setState({emailBorderId: 'approved-border'});
             } else {
                 this.setState({emailError: "EMAIL"});
-                this.props.checkEmail(email);
+                this.setState({emailErrorId: ''});
+                this.setState({emailBorderId: 'approved-border'});
             }
 
-        },1000)
+        },500)
     }
 
     handleUsername(username) {
@@ -157,43 +185,38 @@ class SignupForm extends React.Component {
             clearTimeout(this.timerId);
         }
         this.timerId = setTimeout(() => {
+            let usernameToBeChecked = username.toLowerCase();
+            this.props.checkUsername(usernameToBeChecked);
             if (username.length < 3) {
                 this.setState({usernameError: "YOUR USERNAME IS TOO SHORT. THE MINIMUM LENGTH IS 3 CHARACTERS."});
+                this.setState({usernameErrorId: 'error-text'});
+                this.setState({usernameBorderId: 'error-border'});
             } else if (username.length > 20) {
                 this.setState({usernameError: "YOUR USERNAME IS TOO LONG. THE MAXIMUM LENGTH IS 20 CHARACTERS."});
+                this.setState({usernameErrorId: 'error-text'});
+                this.setState({usernameBorderId: 'error-border'});
             } else {
                 this.setState({usernameError: "USERNAME"});
-                this.props.checkUsername(username);
+                this.setState({usernameErrorId: ''});
+                this.setState({usernameBorderId: 'approved-border'});
             }   
-        },1000)
+        },500)
     }
 
     
     render() {
         
-        let birthdayError = (<p></p>);
-        let usernameError = (<p></p>);
-        let emailError = (<p></p>);
-        let passwordError = (<p></p>);
-        
-        if (this.props.errors.username) {
-            usernameError = (<p id={this.state.usernameErrorId}>{this.props.errors.username}</p>);
-        } else if (this.state.usernameError.length > 0) {
-            usernameError = (<p id={this.state.usernameErrorId}>{this.state.usernameError}</p>)
-        }
+        let birthdayMessage = (<p></p>);
+        let usernameMessage = (<p id = {this.state.usernameErrorId}>{this.state.usernameError}</p>);
+        let emailMessage = (<p id = {this.state.emailErrorId}>{this.state.emailError}</p>);
+        let passwordMessage = (<p></p>);
 
         if (this.state.passwordError.length > 0) {
-            passwordError = (<p id={this.state.passwordErrorId}>{this.state.passwordError}</p>);
+            passwordMessage = (<p id={this.state.passwordErrorId}>{this.state.passwordError}</p>);
         }
 
         if (this.state.birthdayError.length>0) {
-            birthdayError = (<p id={this.state.birthdayErrorId}>{this.state.birthdayError}</p>);
-        }
-
-        if (this.props.errors.email) {
-            emailError = (<p id={this.state.emailErrorId}>{this.props.errors.email}</p>);
-        } else if (this.state.emailError.length >0) {
-            emailError = (<p id={this.state.emailErrorId}>{this.state.emailError}</p>)
+            birthdayMessage = (<p id={this.state.birthdayErrorId}>{this.state.birthdayError}</p>);
         }
 
         const allDays = getAllDays();
@@ -211,7 +234,7 @@ class SignupForm extends React.Component {
                     {this.props.ui.protected ? <p>Sign up for free to create study sets</p> : <button onClick={this.closeForm}>Close</button>}
                     <h1>Sign Up</h1>
                     <form onSubmit = {this.handleSubmit}>
-                        {birthdayError}
+                        {birthdayMessage}
                         <table>
                             <tbody>
                             <tr>
@@ -236,13 +259,13 @@ class SignupForm extends React.Component {
                             </tr>
                             </tbody>
                         </table>
-                    {usernameError}
+                    {usernameMessage}
                     <input onChange = {({target: {value}} ) => this.handleUsername(value)} value = {this.state.username} id = {this.state.usernameBorderId} placeholder= "andrew123" type="text"/>
-                    {emailError}
+                    {emailMessage}
                     <input onChange = {({target: {value}} ) => this.handleEmail(value)} value = {this.state.email} id = {this.state.emailBorderId} placeholder="user@minicram.com" type="email"/>
-                    {passwordError} 
+                    {passwordMessage} 
                     <input onChange = {({target: {value}} ) => this.deboucedUpdatePassword(value) } value={this.state.password} id ={this.state.passwordBorderId} placeholder="********" type="password"/>
-                    <input type="submit"/>
+                    <button>Sign up</button>
                 </form>
                 </div>
             </div>

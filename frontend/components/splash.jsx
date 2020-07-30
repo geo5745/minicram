@@ -4,7 +4,7 @@ import React from 'react';
 
 const Splash = () => (
     <>
-        <div class = "splash"></div>
+        <div className = "splash"></div>
     </>
 );
 
