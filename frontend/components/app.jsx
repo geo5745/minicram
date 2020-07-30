@@ -1,11 +1,17 @@
 import React from 'react';
 import HeaderContainer from './header_container';
+import Browse from './browse';
+import CreateContainer from './create_container';
+import Splash from './splash';
+import { Route } from 'react-router-dom';
 
 
 const App = () => (
     <>
         <HeaderContainer/>
-        <p>Hello World! This is minicram - a Quizlet Clone</p>
+        <Route exact path="/" component={Splash} />
+        <Route path="/browse" component={Browse} />
+        <Route path="/create" component={CreateContainer} />
     </>
 );
 

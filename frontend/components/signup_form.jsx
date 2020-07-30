@@ -1,5 +1,5 @@
 import React from 'react';
-import {getAllDays,getAllMonths,getAllYears,getMonthFromString, isValidDate} from '../util/date_util'
+import {getAllDays,getAllMonths,getAllYears,getMonthFromString, isValidDate, findAge} from '../util/date_util'
 import {isValidEmail} from '../util/auth_util'
 
 class SignupForm extends React.Component {
@@ -15,7 +15,9 @@ class SignupForm extends React.Component {
                         password: '',
                         passwordError: 'PASSWORD',
                         birthdayError: 'BIRTHDAY',
-                        emailError: 'EMAIL'
+                        emailError: 'EMAIL',
+                        usernameError: 'USERNAME',
+                        userAge: 100
                     }
         this.closeForm = this.closeForm.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,12 +32,8 @@ class SignupForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        let userYear = parseInt(this.state.birthyear);
-        let userMonth = getMonthFromString(this.state.birthmonth);
-        let userDay = parseInt(this.state.birthdate);
-        const userBirthday = new Date(userYear,userMonth,userDay);
         const userObject = {
-            birthday: userBirthday,
+            birthday: this.state.birthday,
             username: this.state.username,
             email: this.state.email,
             password: this.state.password,
@@ -55,7 +53,9 @@ class SignupForm extends React.Component {
             password: '',
             passwordError: 'PASSWORD',
             birthdayError: 'BIRTHDAY',
-            emailError: 'EMAIL'
+            emailError: 'EMAIL',
+            usernameError: 'USERNAME',
+            userAge: 100
         });
         this.props.clearAllErrors();
     }
@@ -102,7 +102,10 @@ class SignupForm extends React.Component {
             } else if (dateValid) { 
                 let userBirthday = new Date(userYear,userMonth,userDay);
                 this.setState({birthday: userBirthday});
+                let currentAge = findAge(userBirthday);
+                this.setState({userAge: currentAge});
                 this.setState({birthdayError: "BIRTHDAY"});
+                if (currentAge < 13) this.setState({emailError: "PARENT'S EMAIL"});
             } else {
                 this.setState({birthdayError: "PLEASE ENTER A VALID DATE"});     
             }
@@ -116,30 +119,57 @@ class SignupForm extends React.Component {
         }
         this.timerId = setTimeout(() => {
             if (!isValidEmail(email)) {
-                this.setState({emailError: "INVALID EMAIL ADDRESS"})
+                this.setState({emailError: "INVALID EMAIL ADDRESS"});
+            } else if (this.state.userAge < 13) {
+                this.setState({emailError: "PARENT'S EMAIL"});
+                this.props.checkEmail(email);
             } else {
-                this.setState({emailError: "EMAIL"})
+                this.setState({emailError: "EMAIL"});
                 this.props.checkEmail(email);
             }
 
         },1000)
     }
 
+    handleUsername(username) {
+        this.setState({username: username})
+        if (this.timerId) {
+            clearTimeout(this.timerId);
+        }
+        this.timerId = setTimeout(() => {
+            if (username.length < 3) {
+                this.setState({usernameError: "YOUR USERNAME IS TOO SHORT. THE MINIMUM LENGTH IS 3 CHARACTERS."});
+            } else if (username.length > 20) {
+                this.setState({usernameError: "YOUR USERNAME IS TOO LONG. THE MAXIMUM LENGTH IS 20 CHARACTERS."});
+            } else {
+                this.setState({usernameError: "USERNAME"});
+                this.props.checkUsername(username);
+            }   
+        },1000)
+    }
+
     
     render() {
+        
         let birthdayError = (<p></p>);
         let usernameError = (<p></p>);
         let emailError = (<p></p>);
         let passwordError = (<p></p>);
+        
         if (this.props.errors.username) {
             usernameError = (<p>{this.props.errors.username}</p>);
+        } else if (this.state.usernameError.length > 0) {
+            usernameError = (<p>{this.state.usernameError}</p>)
         }
+
         if (this.state.passwordError.length > 0) {
             passwordError = (<p>{this.state.passwordError}</p>);
         }
+
         if (this.state.birthdayError.length>0) {
             birthdayError = (<p>{this.state.birthdayError}</p>);
         }
+
         if (this.props.errors.email) {
             emailError = (<p>{this.props.errors.email}</p>);
         } else if (this.state.emailError.length >0) {
@@ -158,7 +188,7 @@ class SignupForm extends React.Component {
         return(
             <div className="login-visible">
                 <div className = "form-container">
-                    <button onClick={this.closeForm}>Close</button>
+                    {this.props.ui.protected ? <p>Sign up for free to create study sets</p> : <button onClick={this.closeForm}>Close</button>}
                     <h1>Sign Up</h1>
                     <form onSubmit = {this.handleSubmit}>
                         {birthdayError}
@@ -187,8 +217,7 @@ class SignupForm extends React.Component {
                             </tbody>
                         </table>
                     {usernameError}
-                    <label htmlFor="username">Username:</label>
-                    <input onChange = {this.update("username")} value = {this.state.username} id = "username" type="text"/>
+                    <input onChange = {({target: {value}} ) => this.handleUsername(value)} value = {this.state.username} id = "username" type="text"/>
                     {emailError}
                     <input onChange = {({target: {value}} ) => this.handleEmail(value)} value = {this.state.email} id = "email" type="email"/>
                     {passwordError} 

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
   end
 
-  get '/email/', to: 'api/users#validate_email', defaults: {format: :json}
-  #get '/email/:email', to: 'users#validate_email'
+  get '/emailcheck/', to: 'api/users#validate_email', defaults: {format: :json}
+  get '/usercheck/', to: 'api/users#validate_username', defaults: {format: :json}
 
 end

@@ -34,8 +34,15 @@ export const isValidEmail = (email) => {
 
 export const checkEmail = (email) => {
     return $.ajax({method: 'get',
-            url: '/email/',
+            url: '/emailcheck/',
             data: {email}
+        })
+    };
+
+export const checkUsername = (username) => {
+    return $.ajax({method: 'get',
+            url: '/usercheck/',
+            data: {username}
         })
     };
 

@@ -30,5 +30,12 @@ export const isValidDate = (year,month,day) => {
     return isValid;
 }
 
-// let x = getMonthFromString("Month");
-// console.log(isValidDate(2020,x,12));
+export const findAge = (bday) => {
+    let thisDate = new Date();
+    let yearsElapsed = (thisDate - bday)/31536000000;
+    return Math.floor(yearsElapsed);
+}
+
+// let x = new Date(2007,1,1);
+// let y = new Date(2008,1,1);
+// let z = new Date(2009,1,1);

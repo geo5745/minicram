@@ -24,6 +24,17 @@ class Api::UsersController < ApplicationController
         @user = User.find_by(email: params[:email])
         if @user
             render 'api/users/email_taken'
+        else
+            render 'api/users/email_open', status: 404
+        end
+    end
+
+    def validate_username
+        @user = User.find_by(username: params[:username])
+        if @user
+            render 'api/users/username_taken'
+        else
+            render 'api/users/username_open', status: 404
         end
     end
 

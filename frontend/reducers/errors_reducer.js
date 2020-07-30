@@ -13,7 +13,7 @@ const errorsReducer = (state = initialState,action) => {
         case LOGOUT_USER:
             return initialState;   
         case RECEIVE_ERRORS:
-            return merge({},initialState, action.errors);
+            return merge({},state, action.errors);
         case CLEAR_ERRORS:
             return initialState;
         default:

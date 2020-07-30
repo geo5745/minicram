@@ -31,6 +31,8 @@ export const clearErrors = () => {
     }
 };
 
+export const demo = {username: "demo", password: "demodemo"};
+
 
 export const login = user => dispatch => {
     return authUtil.login(user)
@@ -57,7 +59,15 @@ export const clearAllErrors = () => dispatch => {
 export const checkEmail = (email) => dispatch => {
     return authUtil.checkEmail(email)
         .then(errors => dispatch(receiveErrors(errors)))
+        .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
+}
+
+export const checkUsername = (username) => dispatch => {
+    return authUtil.checkUsername(username)
+        .then(errors => dispatch(receiveErrors(errors)))
+        .fail(errors => dispatch(receiveErrors(errors.responseJSON)))
 }
 
 window.logout = logout;
 window.checkEmail = checkEmail;
+window.checkUsername = checkUsername;

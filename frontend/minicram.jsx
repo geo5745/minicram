@@ -4,8 +4,8 @@ import configureStore from './store/store.js';
 import Root from './components/root';
 
 // testing
-import {logout, checkEmail} from './actions/auth_actions';
-import {openLogin, closeLogin, openSignup, closeSignup} from './actions/ui_actions';
+import {logout, checkEmail, checkUsername} from './actions/auth_actions';
+import {openLogin, closeLogin, openSignup, closeSignup, openProtected, closeProtected} from './actions/ui_actions';
 
 
 
