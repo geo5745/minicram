@@ -8,19 +8,23 @@ input {
 }
 
 input[type="text"] {
+    box-sizing: border-box;
     border-bottom: 2px solid black;
     transition: 0.1s;
 }
 
 input[type="password"] {
+    box-sizing: border-box;
     border-bottom: 2px solid black;
     transition: 0.1s;
 }
 
 input[type="text"]:hover {
+    box-sizing: border-box;
     border-bottom: 3px solid gold;
 }
 
 input[type="password"]:hover {
+    box-sizing: border-box;
     border-bottom: 3px solid gold;
 }
