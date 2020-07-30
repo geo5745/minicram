@@ -55,6 +55,7 @@ class SignupForm extends React.Component {
 
         }
         this.props.signup(userObject);
+        this.closeForm();
     }
 
     componentWillUnmount() {
@@ -91,15 +92,15 @@ class SignupForm extends React.Component {
     componentDidUpdate(prevProps) {
         if (this.props.errors.email && prevProps.errors.email !== this.props.errors.email) {
             this.setState({emailError: this.props.errors.email});
+            this.setState({authEmail: false});
             this.setState({emailErrorId: 'error-text'});
             this.setState({emailBorderId: 'error-border'});
-            this.setState({authEmail: false});
         }
         if (this.props.errors.username && prevProps.errors.username !== this.props.errors.username) {
-            this.setState({usernameError: this.props.errors.username});;
+            this.setState({usernameError: this.props.errors.username});
+            this.setState({authUsername: false});
             this.setState({usernameErrorId: 'error-text'});
             this.setState({usernameBorderId: 'error-border'});
-            this.setState({authUsername: false});
         }
         //if (this.state.authPassword) this.setState({buttonDisabled: false})
 
@@ -123,16 +124,16 @@ class SignupForm extends React.Component {
         }
         this.timerId = setTimeout(() => {
             if (value.length < 8) {
+                this.setState({authPassword: false});
                 this.setState({passwordError: "YOUR PASSWORD IS TOO SHORT"});
                 this.setState({passwordErrorId: "error-text"});
                 this.setState({passwordBorderId: "error-border"});
-                this.setState({authPassword: false});
 
             } else {
+                this.setState({authPassword: true});
                 this.setState({passwordError: 'PASSWORD'});
                 this.setState({passwordErrorId: ""});
                 this.setState({passwordBorderId: "approved-border"});
-                this.setState({authPassword: true});
             }
         },500)
     }
@@ -148,24 +149,24 @@ class SignupForm extends React.Component {
             let userDay = parseInt(this.state.birthdate);
             let dateValid = isValidDate(userYear,userMonth,userDay);
             if (this.state.birthdate === "Day" || this.state.birthmonth === "Month" || this.state.birthyear === "Year") {
-                this.setState({birthdayError: "PLEASE ENTER YOUR BIRTHDAY"});
-                this.setState({birthdayBorderId: "error-border"});
-                this.setState({birthdayErrorId: "error-text"});
                 this.setState({authBirthday: false});
+                this.setState({birthdayError: "PLEASE ENTER YOUR BIRTHDAY"});
+                this.setState({birthdayBorderId: ""});
+                this.setState({birthdayErrorId: ""});
             } else if (!dateValid) { 
+                this.setState({authBirthday: false});
                 this.setState({birthdayError: "PLEASE ENTER A VALID DATE"});
                 this.setState({birthdayBorderId: "error-border"});
                 this.setState({birthdayErrorId: "error-text"});
-                this.setState({authBirthday: false});
             }  else  {
                 let userBirthday = new Date(userYear,userMonth,userDay);
+                this.setState({authBirthday: true});
                 this.setState({birthday: userBirthday});
                 let currentAge = findAge(userBirthday);
                 this.setState({userAge: currentAge});
                 this.setState({birthdayError: "BIRTHDAY"});
                 this.setState({birthdayBorderId: "approved-border"});
                 this.setState({birthdayErrorId: ""});
-                this.setState({authBirthday: true});
                 if (currentAge < 13) {
                     this.setState({emailError: "PARENT'S EMAIL"});
                     this.setState({emailErrorId: ''});
@@ -176,7 +177,7 @@ class SignupForm extends React.Component {
                     this.setState({emailBorderId: ''});
                 }
             }
-        },1500)
+        },800)
     }
 
     handleEmail(email) {
@@ -187,20 +188,21 @@ class SignupForm extends React.Component {
         this.timerId = setTimeout(() => {
             this.props.checkEmail(email.toLowerCase());
             if (!isValidEmail(email)) {
+                this.setState({authEmail: false});
                 this.setState({emailError: "INVALID EMAIL ADDRESS"});
                 this.setState({emailErrorId: 'error-text'});
                 this.setState({emailBorderId: 'error-border'});
-                this.setState({authEmail: false});
             } else if (this.state.userAge < 13) {
+                this.setState({authEmail: true});
                 this.setState({emailError: "PARENT'S EMAIL"});
                 this.setState({emailErrorId: ''});
                 this.setState({emailBorderId: 'approved-border'});
-                this.setState({authEmail: true});
             } else {
+                this.setState({authEmail: true});
                 this.setState({emailError: "EMAIL"});
                 this.setState({emailErrorId: ''});
                 this.setState({emailBorderId: 'approved-border'});
-                this.setState({authEmail: true});
+                
             }
 
         },500)
@@ -215,20 +217,20 @@ class SignupForm extends React.Component {
             let usernameToBeChecked = username.toLowerCase();
             this.props.checkUsername(usernameToBeChecked);
             if (username.length < 3) {
+                this.setState({authUsername: false});
                 this.setState({usernameError: "YOUR USERNAME IS TOO SHORT. THE MINIMUM LENGTH IS 3 CHARACTERS."});
                 this.setState({usernameErrorId: 'error-text'});
                 this.setState({usernameBorderId: 'error-border'});
-                this.setState({authUsername: false});
             } else if (username.length > 20) {
+                this.setState({authUsername: false});
                 this.setState({usernameError: "YOUR USERNAME IS TOO LONG. THE MAXIMUM LENGTH IS 20 CHARACTERS."});
                 this.setState({usernameErrorId: 'error-text'});
                 this.setState({usernameBorderId: 'error-border'});
-                this.setState({authUsername: false});
             } else {
+                this.setState({authUsername: true});
                 this.setState({usernameError: "USERNAME"});
                 this.setState({usernameErrorId: ''});
                 this.setState({usernameBorderId: 'approved-border'});
-                this.setState({authUsername: true});
             }   
         },500)
     }
