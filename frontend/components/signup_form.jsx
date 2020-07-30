@@ -17,7 +17,15 @@ class SignupForm extends React.Component {
                         birthdayError: 'BIRTHDAY',
                         emailError: 'EMAIL',
                         usernameError: 'USERNAME',
-                        userAge: 100
+                        userAge: 100,
+                        birthdayBorderId: '',
+                        birthdayErrorId: '',
+                        usernameErrorId: '',
+                        emailErrorId: '',
+                        passwordErrorId: '',
+                        usernameBorderId: '',
+                        emailBorderId: '',
+                        passwordBorderId: ''
                     }
         this.closeForm = this.closeForm.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -55,7 +63,15 @@ class SignupForm extends React.Component {
             birthdayError: 'BIRTHDAY',
             emailError: 'EMAIL',
             usernameError: 'USERNAME',
-            userAge: 100
+            userAge: 100,
+            birthdayBorderId: '',
+            birthdayErrorId: '',
+            usernameErrorId: '',
+            emailErrorId: '',
+            passwordErrorId: '',
+            usernameBorderId: '',
+            emailBorderId: '',
+            passwordBorderId: ''
         });
         this.props.clearAllErrors();
     }
@@ -80,8 +96,13 @@ class SignupForm extends React.Component {
         this.timerId = setTimeout(() => {
             if (value.length < 8) {
                 this.setState({passwordError: "YOUR PASSWORD IS TOO SHORT"});
+                this.setState({passwordErrorId: "error-text"});
+                this.setState({passwordBorderId: "error-border"});
+
             } else {
-                this.setState({passwordError: 'INVALID EMAIL ADDRESS'})
+                this.setState({passwordError: 'PASSWORD'});
+                this.setState({passwordErrorId: "approved-text"});
+                this.setState({passwordBorderId: "approved-border"});
             }
         },1000)
     }
@@ -96,7 +117,6 @@ class SignupForm extends React.Component {
             let userMonth = getMonthFromString(this.state.birthmonth);
             let userDay = parseInt(this.state.birthdate);
             let dateValid = isValidDate(userYear,userMonth,userDay);
-            //debugger
             if (this.state.birthdate === "Day" || this.state.birthmonth === "Month" || this.state.birthyear === "Year") {
                 this.setState({birthdayError: "PLEASE ENTER YOUR BIRTHDAY"});
             } else if (dateValid) { 
@@ -107,7 +127,7 @@ class SignupForm extends React.Component {
                 this.setState({birthdayError: "BIRTHDAY"});
                 if (currentAge < 13) this.setState({emailError: "PARENT'S EMAIL"});
             } else {
-                this.setState({birthdayError: "PLEASE ENTER A VALID DATE"});     
+                this.setState({birthdayError: "PLEASE ENTER A VALID DATE"});  
             }
         },1000)
     }
@@ -157,23 +177,23 @@ class SignupForm extends React.Component {
         let passwordError = (<p></p>);
         
         if (this.props.errors.username) {
-            usernameError = (<p>{this.props.errors.username}</p>);
+            usernameError = (<p id={this.state.usernameErrorId}>{this.props.errors.username}</p>);
         } else if (this.state.usernameError.length > 0) {
-            usernameError = (<p>{this.state.usernameError}</p>)
+            usernameError = (<p id={this.state.usernameErrorId}>{this.state.usernameError}</p>)
         }
 
         if (this.state.passwordError.length > 0) {
-            passwordError = (<p>{this.state.passwordError}</p>);
+            passwordError = (<p id={this.state.passwordErrorId}>{this.state.passwordError}</p>);
         }
 
         if (this.state.birthdayError.length>0) {
-            birthdayError = (<p>{this.state.birthdayError}</p>);
+            birthdayError = (<p id={this.state.birthdayErrorId}>{this.state.birthdayError}</p>);
         }
 
         if (this.props.errors.email) {
-            emailError = (<p>{this.props.errors.email}</p>);
+            emailError = (<p id={this.state.emailErrorId}>{this.props.errors.email}</p>);
         } else if (this.state.emailError.length >0) {
-            emailError = (<p>{this.state.emailError}</p>)
+            emailError = (<p id={this.state.emailErrorId}>{this.state.emailError}</p>)
         }
 
         const allDays = getAllDays();
@@ -196,19 +216,19 @@ class SignupForm extends React.Component {
                             <tbody>
                             <tr>
                                 <td>
-                                    <select onChange={({target: {value}} ) => this.handleDate("birthmonth",value)} id="birthmonth">
+                                    <select onChange={({target: {value}} ) => this.handleDate("birthmonth",value)} id={this.state.birthdayBorderId}>
                                         <option value="Month">Month</option>
                                         {monthOptions}
                                     </select>   
                                 </td>
                                 <td>
-                                    <select onChange={({target: {value}} ) => this.handleDate("birthdate",value)} id="birthdate">
+                                    <select onChange={({target: {value}} ) => this.handleDate("birthdate",value)} id={this.state.birthdayBorderId}>
                                         <option value="Day">Day</option>
                                         {dayOptions}
                                     </select>
                                 </td>
                                 <td>
-                                    <select onChange={({target: {value}} ) => this.handleDate("birthyear",value)} id="birthyear">
+                                    <select onChange={({target: {value}} ) => this.handleDate("birthyear",value)} id={this.state.birthdayBorderId}>
                                         <option value="Year">Year</option>
                                         {yearOptions}
                                     </select>  
@@ -217,11 +237,11 @@ class SignupForm extends React.Component {
                             </tbody>
                         </table>
                     {usernameError}
-                    <input onChange = {({target: {value}} ) => this.handleUsername(value)} value = {this.state.username} id = "username" type="text"/>
+                    <input onChange = {({target: {value}} ) => this.handleUsername(value)} value = {this.state.username} id = {this.state.usernameBorderId} placeholder= "andrew123" type="text"/>
                     {emailError}
-                    <input onChange = {({target: {value}} ) => this.handleEmail(value)} value = {this.state.email} id = "email" type="email"/>
+                    <input onChange = {({target: {value}} ) => this.handleEmail(value)} value = {this.state.email} id = {this.state.emailBorderId} placeholder="user@minicram.com" type="email"/>
                     {passwordError} 
-                    <input onChange = {({target: {value}} ) => this.deboucedUpdatePassword(value) } value={this.state.password} id ="password" type="password"/>
+                    <input onChange = {({target: {value}} ) => this.deboucedUpdatePassword(value) } value={this.state.password} id ={this.state.passwordBorderId} placeholder="********" type="password"/>
                     <input type="submit"/>
                 </form>
                 </div>

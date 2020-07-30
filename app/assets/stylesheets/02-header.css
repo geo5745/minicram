@@ -1,6 +1,6 @@
 .header {
     background-color: #4256b1;
-    height: 66px;
+    height: 80px;
     display: flex;
     color: white;
     flex-direction: row;
@@ -13,15 +13,16 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    font-size: 10pt;
+    font-size: 11pt;
+    padding-left: 15%;
 }
 
 .header-buttons {
-    padding-right:100px;
+    padding-right:15%;
     display:flex;
     flex-direction: row;
     align-items: center;
-    font-size: 9pt;
+    font-size: 10pt;
 }
 
 #signup {
@@ -49,14 +50,19 @@
 
 .header-buttons > button {
     padding: 15px;
+    margin: 10px;
     
+}
+
+.header-buttons > button:hover {
+    color:lightsteelblue;
 }
 
 
 .header-nav-logo {
     font-size: 18pt;
     font-weight: bold;
-    padding: 0px 40px;
+    padding: 0px 40px 0px 0px;
 }
 
 .header-nav-list {
@@ -64,6 +70,14 @@
     flex-direction: row;
     justify-content: flex-start; 
 
+}
+
+.header-nav-list a {
+    transition: 0.1s;
+}
+
+.header-nav-list a:hover {
+    color: lightsteelblue;
 }
 
 .header-nav-list > li {

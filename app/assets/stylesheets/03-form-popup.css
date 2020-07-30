@@ -22,10 +22,10 @@
     flex-direction: column;
     align-items: center;
     top: 5%;
-    left: 30%;
     padding:10px;
     height: 90%;
-    width: 40%;
+    width: 600px;
+    margin: auto;
     background-color: white;
 }
 
@@ -51,17 +51,89 @@
 
 } */
 
-.form-container input[type="text"] {  
-    display:block;
-    background-color: #f5f4f6;
+#approved-border {
+    border: 2px solid green;
+    transition: 0.1s;
 }
 
-.form-container input[type="password"] { 
-    display:block; 
-    background-color: #f5f4f6;
+#error-border {
+    border: 2px solid red;
+    transition: 0.1s;
 }
 
-.form-container input[type="email"] { 
-    display:block; 
-    background-color: #f5f4f6;
+#approved-text {
+    color: green;
+    transition: 0.1s;
 }
+
+#error-text {
+    color:red;
+    transition: 0.1s;
+}
+
+.form-container input::placeholder {
+    color: silver;
+}
+
+.form-container p {
+    display: block;
+    width: 530px;
+    align-self: left;
+    font-size: 12px;
+    color: #939bb4;
+}
+
+.form-container input[type="text"],
+input[type="email"],
+input[type="password"] {  
+    display:block;  
+    background-color: white;
+    width:530px;
+    height:50px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 14pt;
+    border: 2px solid black;
+    margin: 15px 0px;
+}
+
+.form-container select {
+    color:turquoise;
+    background-color: white;
+    height:50px;
+    border-radius: 5px;
+    font-size: 14pt;
+    border: 2px solid black;
+    margin: 15px 0px;
+}
+
+.form-container td {
+    padding: 0px 10px 0px 0px;
+}
+
+.form-container table {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+}
+
+.form-container select:hover {
+    color:gold;
+}
+
+.form-container input[type="text"]:focus, 
+input[type="email"]:focus,
+input[type="password"]:focus,
+select {  
+    border: 2px solid gold;
+}
+
+.form-container input[type="text"]:hover, 
+input[type="email"]:hover,
+input[type="password"]:hover,
+select {  
+    border: 2px solid gold;
+}
+
+

@@ -1,0 +1,20 @@
+
+
+
+
+.splash {
+    background-color: #3B4c9A;
+    height:700px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 24pt;
+    color: white;  
+    position: fixed; /* Sit on top of the page content */
+    display: block; /* Hidden by default */
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index:-1;
+}

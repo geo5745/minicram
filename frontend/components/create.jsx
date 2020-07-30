@@ -8,7 +8,7 @@ class Create extends React.Component{
     }
 
     componentDidMount() {
-        this.props.openProtected();
+        if (!this.props.session.id) this.props.openProtected();
     }
 
     componentWillUnmount() {
