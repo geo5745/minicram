@@ -1,0 +1,126 @@
+.new-card-container {
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 25px 0px;
+}
+
+.new-card-header {
+    border-bottom: 2px solid #f5f4f6;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+}
+
+.new-card-header > * > * {
+    margin: 0px 10px;
+}
+
+.new-card-number {
+    font-size: 16px;
+    color: #939bb4;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.new-card-header button:hover {
+    color: gold;
+}
+
+.paint {
+    color: greenyellow;
+    background-color: #f5f4f6;
+    border-radius: 10px;
+    padding:0px 3px;
+}
+
+.new-card-content {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 30px;
+}
+
+.new-card-content > * {
+    padding: 0 10px;
+}
+
+.new-card-content input[type="text"] {
+    font-size: 18px;
+    font-weight: 250;
+    letter-spacing: 1px;
+    height: 36px;
+    /* padding:10px 0px; */
+    box-sizing: border-box;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid black;
+    transition: 0.2s;
+}
+
+.new-card-content input[type="text"]:focus {
+    border-bottom: 4px solid gold;
+    padding-bottom: 8px;
+}
+
+.term-input-container > input {
+    width:570px;
+}
+
+.definition-container {
+    display:block;
+    width:100%
+}
+
+.definition-input-container {
+    display:block;
+    width:100%
+}
+
+.definition-input-container > input {
+    width: 100%;
+}
+
+.labels-container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top:8px;
+    font-size: 12px;
+    color: #939bb4;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.labels-container a {
+    color:turquoise;
+}
+
+.labels-container a:hover {
+    color:gold;
+}
+
+.image-drop-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px dashed #939bb4;
+    box-sizing: border-box;
+    width: 85px;
+    height: 60px;
+    font-size: 20px;
+}
+
+.image-drop-container > button {
+    width:80px;
+    height:54px;
+    text-align: center;
+}
+
+
+.image-drop-container > button:hover {
+    color:gold;
+}

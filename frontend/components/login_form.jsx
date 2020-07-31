@@ -1,4 +1,5 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -11,7 +12,8 @@ class LoginForm extends React.Component {
                         usernameBorderClass: '',
                         usernameTextClass: '',
                         passwordBorderClass: '',
-                        passwordTextClass: ''
+                        passwordTextClass: '',
+                        sendToUser: false
                     }
         this.closeForm = this.closeForm.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,6 +32,7 @@ class LoginForm extends React.Component {
             password: this.state.password
         }
         this.props.login(userObject);
+        this.setState({sendToUser: true})
         //this.closeForm();
     }
 
@@ -42,7 +45,8 @@ class LoginForm extends React.Component {
             usernameBorderClass: '',
             usernameTextClass: '',
             passwordBorderClass: '',
-            passwordTextClass: ''
+            passwordTextClass: '',
+            sendToUser: false
         });
         this.props.clearAllErrors();
     }
@@ -71,7 +75,9 @@ class LoginForm extends React.Component {
     render() {
         let usernameMessage = (<p id = {this.state.usernameTextClass}>{this.state.usernameError}</p>);
         let passwordMessage = (<p id = {this.state.passwordTextClass}>{this.state.passwordError}</p>);
-        
+        if (this.props.session.id && this.state.sendToUser) {
+            return (<Redirect to={`/user/${this.props.session.id}`}/>)
+        } else {
         return(
             <div className="login-visible">
                 <div className = "login-form">
@@ -89,7 +95,9 @@ class LoginForm extends React.Component {
                     </form>
                 </div>
             </div>
-    )}
+        )}
+
+    }
 
 }
 

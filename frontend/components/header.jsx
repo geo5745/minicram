@@ -9,6 +9,12 @@ class Header extends React.Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            goodbye: false
+        }
+
+
+
         this.handleLogout = this.handleLogout.bind(this)
     }
 
@@ -18,18 +24,23 @@ class Header extends React.Component {
 
     handleLogout () {
         this.props.logout();
+        this.setState({goodbye: true})
     }
 
     render() {
+        const { goodbye } = this.state;
+
         let {id} = this.props.session;
         let currentUsername = '';
         const loginButton = (<button onClick={this.props.openLogin}>Log in</button>);
         const demoButton = (<button id="logout" onClick={() => this.props.login(demo)}>Demo Log in</button>)
         const signupButton = (<button id="signup" onClick={this.props.openSignup}>Sign up</button>);
         const logoutButton = (<button id="logout" onClick={this.handleLogout}>Log out</button>);
+        
         if (id) {
             currentUsername = (<p>{this.props.users[id].username}</p>);
-        }
+        }   
+
         return (
             <>
             <header className="header">
@@ -52,6 +63,7 @@ class Header extends React.Component {
             {this.props.ui.login ? <LoginFormContainer/> : <></>}
             {this.props.ui.signup ? <SignupFormContainer/> : <></>}
             {this.props.ui.protected ? <ProtectedFormContainer/> : <></>}
+            {goodbye ? <Redirect to='/goodbye'/> : <></>}
             </>
     )}
 

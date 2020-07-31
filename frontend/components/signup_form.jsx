@@ -311,7 +311,7 @@ class SignupForm extends React.Component {
                     <p className="disclaimer">By clicking Sign up, you accept minicrams's <Link to="/">Terms of Service</Link> and <Link to="/">Privacy Policy</Link></p>
                     <button disabled = {buttonDisabled}>Sign up</button>
                     <div className="lastbox">Already have an account?&nbsp;<Link onClick={this.props.openLogin} to="/">Log in</Link></div>
-                </form>
+                    </form>
                 </div>
             </div>
     )}
