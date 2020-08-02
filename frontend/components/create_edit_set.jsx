@@ -78,7 +78,7 @@ class CreateSet extends React.Component{
                             <div className = "create-set-master-text">Create a new study set</div>
                             <button     className = "create-set-header-button">Create</button>
                         </div>
-                        <div className ="create-set-messages"><section>FOR TESTING PURPOSES - SET # {this.state.sets.id}. TO VIEW IN EDIT MODE GO TO '/#/sets/{this.state.sets.id}/edit'</section></div>
+                        <div className ="create-set-messages"><section>FOR TESTING PURPOSES - SET # {this.state.sets.id}. TO VIEW IN EDIT MODE GO TO '/#/set/{this.state.sets.id}/edit'</section></div>
                         <form className = "create-set-header-form">
                             <input onChange = {({target: {value}} ) => this.debouncedUpdateTitle(value)} type="text" value={this.state.sets.title || ''} placeholder='Enter a title, like "Biology - Chapter 22: Evolution"'/>
                             <p>TITLE</p>
