@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-    protect_from_forgery except: [:validate_email]
+    #protect_from_forgery except: [:validate_email]
 
     def index
         @users = User.all

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resource :session, only: [:create, :destroy]
     resources :users, only: [:create]
+    resources :decks, only: [:create, :show]
+    resources :cards, only: [:create, :show, :destroy]
   end
 
   get '/emailcheck/', to: 'api/users#validate_email', defaults: {format: :json}

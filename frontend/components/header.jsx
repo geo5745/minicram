@@ -9,9 +9,9 @@ class Header extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            goodbye: false
-        }
+        // this.state = {
+        //     goodbye: false
+        // }
 
 
 
@@ -24,18 +24,19 @@ class Header extends React.Component {
 
     handleLogout () {
         this.props.logout();
-        this.setState({goodbye: true})
+        //this.setState({goodbye: true})
     }
 
     render() {
-        const { goodbye } = this.state;
+        //const { goodbye } = this.state;
 
         let {id} = this.props.session;
         let currentUsername = '';
         const loginButton = (<button onClick={this.props.openLogin}>Log in</button>);
-        const demoButton = (<button id="logout" onClick={() => this.props.login(demo)}>Demo Log in</button>)
+        const demoButton = (<button id="demo" onClick={() => this.props.login(demo)}>Demo Log in</button>)
         const signupButton = (<button id="signup" onClick={this.props.openSignup}>Sign up</button>);
-        const logoutButton = (<button id="logout" onClick={this.handleLogout}>Log out</button>);
+        //const logoutButton = (<button id="logout" onClick={this.handleLogout}>Log out</button>);
+        const logoutButton = (<Link className ="goldbutton" onClick={this.handleLogout} to="/goodbye">Log out</Link>)
         
         if (id) {
             currentUsername = (<p>{this.props.users[id].username}</p>);
@@ -63,7 +64,7 @@ class Header extends React.Component {
             {this.props.ui.login ? <LoginFormContainer/> : <></>}
             {this.props.ui.signup ? <SignupFormContainer/> : <></>}
             {this.props.ui.protected ? <ProtectedFormContainer/> : <></>}
-            {goodbye ? <Redirect to='/goodbye'/> : <></>}
+            {/*goodbye ? <Redirect to='/goodbye'/> : <></>*/}
             </>
     )}
 

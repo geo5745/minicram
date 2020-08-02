@@ -6,6 +6,7 @@ import Root from './components/root';
 // testing
 import {logout, checkEmail, checkUsername} from './actions/auth_actions';
 import {openLogin, closeLogin, openSignup, closeSignup, openProtected, closeProtected} from './actions/ui_actions';
+import {fetchSet,clearSet,createSet, deleteCard} from './actions/api_actions';
 
 
 
