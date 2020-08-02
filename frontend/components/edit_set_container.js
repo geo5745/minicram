@@ -1,7 +1,7 @@
 import EditSet from './create_edit_set';
 import {connect} from 'react-redux';
 import { openProtected, closeProtected } from '../actions/ui_actions';
-import {fetchSet,createSet, clearSet,deleteCard } from '../actions/api_actions';
+import {fetchSet,createSet, clearSet,deleteCard, addCard, updateCard, updateSet } from '../actions/api_actions';
 import { withRouter} from 'react-router-dom';
 
 const mapStateToProps = (state,ownProps) => {
@@ -20,7 +20,10 @@ const mapDispatchToProps = (dispatch) => ({
     fetchSet: (setId) => dispatch(fetchSet(setId)),
     createSet: (session) => dispatch(createSet(session)),
     clearSet: () => dispatch(clearSet()),
-    deleteCard: (cardId) => dispatch(deleteCard(cardId))
+    deleteCard: (cardId) => dispatch(deleteCard(cardId)),
+    addCard: (set) => dispatch(addCard(set)),
+    updateCard: (card) => dispatch(updateCard(card)),
+    updateSet: (set) => dispatch(updateSet(set))
 });
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(EditSet));

@@ -26725,3 +26725,2169 @@ Processing by Api::CardsController#destroy as JSON
 Completed 200 OK in 18ms (Views: 9.8ms | ActiveRecord: 4.7ms)
 
 
+Started GET "/" for ::1 at 2020-08-02 09:32:05 -0400
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OIPv3F3QGOY7LZ6FH07MLw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 1718ms (Views: 1703.2ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 09:32:15 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OIPv3F3QGOY7LZ6FH07MLw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 68ms (Views: 64.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/decks/20" for ::1 at 2020-08-02 09:32:19 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"20"}
+  [1m[36mDeck Load (0.9ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 20]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (38.8ms)
+Completed 200 OK in 83ms (Views: 42.6ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 09:32:30 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OIPv3F3QGOY7LZ6FH07MLw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 80ms (Views: 73.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/decks/3" for ::1 at 2020-08-02 09:32:34 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  Rendered api/decks/show.json.jbuilder (13.2ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.5ms)
+
+
+
+ActionView::Template::Error - undefined method `id' for nil:NilClass:
+  app/views/api/decks/show.json.jbuilder:2:in `view template'
+
+Started GET "/api/decks/20" for ::1 at 2020-08-02 09:32:36 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"20"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 20]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (2.7ms)
+Completed 200 OK in 21ms (Views: 14.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/cards/" for ::1 at 2020-08-02 09:36:02 -0400
+Processing by Api::CardsController#create as JSON
+  Parameters: {"set"=>{"id"=>"20"}}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mDeck Load (0.6ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mCard Create (0.7ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 20], ["created_at", "2020-08-02 13:36:02.794365"], ["updated_at", "2020-08-02 13:36:02.794365"]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.5ms)
+Completed 200 OK in 21ms (Views: 11.7ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/api/decks/20" for ::1 at 2020-08-02 09:37:15 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"20"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 20]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (2.1ms)
+Completed 200 OK in 16ms (Views: 11.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/cards/?id=20" for ::1 at 2020-08-02 09:38:52 -0400
+Processing by Api::CardsController#create as JSON
+  Parameters: {"id"=>"20"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/api/cards_controller.rb:5:in `create'
+
+Started POST "/api/cards/?set={id:20}" for ::1 at 2020-08-02 09:39:20 -0400
+Processing by Api::CardsController#create as JSON
+  Parameters: {"set"=>"{id:20}"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+
+TypeError - no implicit conversion of Symbol into Integer:
+  app/controllers/api/cards_controller.rb:5:in `create'
+
+Started POST "/api/cards/" for ::1 at 2020-08-02 09:40:46 -0400
+Processing by Api::CardsController#create as JSON
+  Parameters: {"set"=>{"id"=>"20"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mCard Create (0.8ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 20], ["created_at", "2020-08-02 13:40:46.445325"], ["updated_at", "2020-08-02 13:40:46.445325"]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 25ms (Views: 17.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/api/decks/20" for ::1 at 2020-08-02 09:40:56 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"20"}
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 20]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (1.8ms)
+Completed 200 OK in 15ms (Views: 10.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/decks/" for ::1 at 2020-08-02 09:45:44 -0400
+Processing by Api::DecksController#create as JSON
+  Parameters: {"user"=>{"id"=>"5"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:5
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:5
+  [1m[36mDeck Create (0.7ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", ""], ["description", ""], ["user_id", 5], ["created_at", "2020-08-02 13:45:44.447359"], ["updated_at", "2020-08-02 13:45:44.447359"]]
+  ↳ app/controllers/api/decks_controller.rb:5
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.6ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (2.6ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 25], ["created_at", "2020-08-02 13:45:44.453042"], ["updated_at", "2020-08-02 13:45:44.453042"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (0.6ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 25], ["created_at", "2020-08-02 13:45:44.462069"], ["updated_at", "2020-08-02 13:45:44.462069"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 25], ["created_at", "2020-08-02 13:45:44.467375"], ["updated_at", "2020-08-02 13:45:44.467375"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (1.1ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 25], ["created_at", "2020-08-02 13:45:44.473132"], ["updated_at", "2020-08-02 13:45:44.473132"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 25], ["created_at", "2020-08-02 13:45:44.479245"], ["updated_at", "2020-08-02 13:45:44.479245"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (2.4ms)
+Completed 200 OK in 63ms (Views: 16.8ms | ActiveRecord: 13.9ms)
+
+
+Started POST "/api/cards/" for ::1 at 2020-08-02 09:46:31 -0400
+Processing by Api::CardsController#create as JSON
+  Parameters: {"set"=>{"id"=>"25"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 25], ["created_at", "2020-08-02 13:46:31.731948"], ["updated_at", "2020-08-02 13:46:31.731948"]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.7ms)
+Completed 200 OK in 17ms (Views: 11.4ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/api/cards/" for ::1 at 2020-08-02 09:49:17 -0400
+Processing by Api::CardsController#create as JSON
+  Parameters: {"set"=>{"id"=>"25"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mCard Create (0.6ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 25], ["created_at", "2020-08-02 13:49:17.198533"], ["updated_at", "2020-08-02 13:49:17.198533"]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 15ms (Views: 10.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 09:49:24 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OIPv3F3QGOY7LZ6FH07MLw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 509ms (Views: 505.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/decks/" for ::1 at 2020-08-02 09:49:24 -0400
+Processing by Api::DecksController#create as JSON
+  Parameters: {"user"=>{"id"=>"5"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:5
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:5
+  [1m[36mDeck Create (1.7ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", ""], ["description", ""], ["user_id", 5], ["created_at", "2020-08-02 13:49:24.935693"], ["updated_at", "2020-08-02 13:49:24.935693"]]
+  ↳ app/controllers/api/decks_controller.rb:5
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.6ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (1.2ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 26], ["created_at", "2020-08-02 13:49:24.942937"], ["updated_at", "2020-08-02 13:49:24.942937"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (0.6ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 26], ["created_at", "2020-08-02 13:49:24.949598"], ["updated_at", "2020-08-02 13:49:24.949598"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (0.9ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 26], ["created_at", "2020-08-02 13:49:24.960337"], ["updated_at", "2020-08-02 13:49:24.960337"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (1.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (0.9ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 26], ["created_at", "2020-08-02 13:49:24.967806"], ["updated_at", "2020-08-02 13:49:24.967806"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.6ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (1.7ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 26], ["created_at", "2020-08-02 13:49:24.979515"], ["updated_at", "2020-08-02 13:49:24.979515"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (1.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 26]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (6.4ms)
+Completed 200 OK in 80ms (Views: 25.0ms | ActiveRecord: 27.4ms)
+
+
+Started DELETE "/api/session" for ::1 at 2020-08-02 09:49:35 -0400
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OIPv3F3QGOY7LZ6FH07MLw"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "demo"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@demo.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "CigWUwncY6M3CY1diNjfKQ"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "CigWUwncY6M3CY1diNjfKQ"], ["updated_at", "2020-08-02 13:49:35.153377"], ["id", 5]]
+  ↳ app/models/user.rb:33
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:33
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 09:49:36 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 48ms (Views: 44.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/session" for ::1 at 2020-08-02 09:49:39 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"demo", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "demo"], ["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "demo"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "demo"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@demo.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["updated_at", "2020-08-02 13:49:39.514625"], ["id", 5]]
+  ↳ app/models/user.rb:33
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:33
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (0.5ms)
+Completed 200 OK in 271ms (Views: 13.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 09:49:49 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (2.4ms)
+Completed 200 OK in 25ms (Views: 15.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/cards/" for ::1 at 2020-08-02 09:49:58 -0400
+Processing by Api::CardsController#create as JSON
+  Parameters: {"set"=>{"id"=>"25"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 25], ["created_at", "2020-08-02 13:49:58.083517"], ["updated_at", "2020-08-02 13:49:58.083517"]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.7ms)
+Completed 200 OK in 18ms (Views: 11.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 09:50:13 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 66ms (Views: 63.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 09:50:13 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (4.1ms)
+Completed 200 OK in 28ms (Views: 20.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 09:52:37 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 466ms (Views: 462.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 09:52:38 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (1.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (4.2ms)
+Completed 200 OK in 29ms (Views: 20.1ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/api/cards/" for ::1 at 2020-08-02 09:52:43 -0400
+Processing by Api::CardsController#create as JSON
+  Parameters: {"set"=>{"id"=>"25"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 25], ["created_at", "2020-08-02 13:52:43.651467"], ["updated_at", "2020-08-02 13:52:43.651467"]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 16ms (Views: 9.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 09:54:55 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 478ms (Views: 475.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 09:54:56 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (4.8ms)
+Completed 200 OK in 29ms (Views: 20.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/cards/" for ::1 at 2020-08-02 09:55:01 -0400
+Processing by Api::CardsController#create as JSON
+  Parameters: {"set"=>{"id"=>"25"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 25], ["created_at", "2020-08-02 13:55:01.179634"], ["updated_at", "2020-08-02 13:55:01.179634"]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 17ms (Views: 10.9ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/cards/" for ::1 at 2020-08-02 09:55:22 -0400
+Processing by Api::CardsController#create as JSON
+  Parameters: {"set"=>{"id"=>"25"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 25], ["created_at", "2020-08-02 13:55:22.690799"], ["updated_at", "2020-08-02 13:55:22.690799"]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.5ms)
+Completed 200 OK in 18ms (Views: 12.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 09:55:42 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 63ms (Views: 59.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 09:55:42 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (11.6ms)
+Completed 200 OK in 31ms (Views: 23.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/cards/" for ::1 at 2020-08-02 09:55:45 -0400
+Processing by Api::CardsController#create as JSON
+  Parameters: {"set"=>{"id"=>"25"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 25], ["created_at", "2020-08-02 13:55:45.797856"], ["updated_at", "2020-08-02 13:55:45.797856"]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.7ms)
+Completed 200 OK in 16ms (Views: 11.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 09:59:52 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 505ms (Views: 501.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:00:04 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 79ms (Views: 74.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:00:16 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 472ms (Views: 468.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:00:17 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (1.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (1.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (4.8ms)
+Completed 200 OK in 26ms (Views: 16.7ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/api/cards/" for ::1 at 2020-08-02 10:00:20 -0400
+Processing by Api::CardsController#create as JSON
+  Parameters: {"set"=>{"id"=>"25", "title"=>"", "description"=>"", "user_id"=>"5"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mCard Create (0.7ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 25], ["created_at", "2020-08-02 14:00:20.249653"], ["updated_at", "2020-08-02 14:00:20.249653"]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 15ms (Views: 9.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/decks/20" for ::1 at 2020-08-02 10:00:33 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"20"}
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 20]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (2.7ms)
+Completed 200 OK in 19ms (Views: 14.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:00:37 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (2.4ms)
+Completed 200 OK in 19ms (Views: 13.8ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/api/cards/182" for ::1 at 2020-08-02 10:00:50 -0400
+Processing by Api::CardsController#destroy as JSON
+  Parameters: {"id"=>"182"}
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 182], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[36mCard Destroy (0.3ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 182]]
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.8ms)
+Completed 200 OK in 14ms (Views: 10.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:00:56 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.6ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (2.3ms)
+Completed 200 OK in 16ms (Views: 10.0ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api/cards/" for ::1 at 2020-08-02 10:01:05 -0400
+Processing by Api::CardsController#create as JSON
+  Parameters: {"set"=>{"id"=>"25", "title"=>"", "description"=>"", "user_id"=>"5"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 25], ["created_at", "2020-08-02 14:01:05.562782"], ["updated_at", "2020-08-02 14:01:05.562782"]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.6ms)
+Completed 200 OK in 15ms (Views: 9.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:01:17 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (3.3ms)
+Completed 200 OK in 24ms (Views: 17.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:02:56 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 486ms (Views: 480.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:03:25 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 458ms (Views: 454.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:03:26 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (1.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (5.0ms)
+Completed 200 OK in 32ms (Views: 21.5ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/decks/" for ::1 at 2020-08-02 10:03:34 -0400
+Processing by Api::DecksController#create as JSON
+  Parameters: {"user"=>{"id"=>"5"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:5
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:5
+  [1m[36mDeck Create (1.2ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", ""], ["description", ""], ["user_id", 5], ["created_at", "2020-08-02 14:03:34.129122"], ["updated_at", "2020-08-02 14:03:34.129122"]]
+  ↳ app/controllers/api/decks_controller.rb:5
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 27], ["created_at", "2020-08-02 14:03:34.135894"], ["updated_at", "2020-08-02 14:03:34.135894"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (0.7ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 27], ["created_at", "2020-08-02 14:03:34.140196"], ["updated_at", "2020-08-02 14:03:34.140196"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (0.6ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 27], ["created_at", "2020-08-02 14:03:34.147311"], ["updated_at", "2020-08-02 14:03:34.147311"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 27], ["created_at", "2020-08-02 14:03:34.154371"], ["updated_at", "2020-08-02 14:03:34.154371"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.8ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 27], ["created_at", "2020-08-02 14:03:34.160447"], ["updated_at", "2020-08-02 14:03:34.160447"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 27]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (3.1ms)
+Completed 200 OK in 50ms (Views: 12.4ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:04:05 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (5.0ms)
+Completed 200 OK in 27ms (Views: 19.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:04:09 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 485ms (Views: 481.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:04:09 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.8ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.9ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (5.2ms)
+Completed 200 OK in 35ms (Views: 24.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:05:49 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 2008ms (Views: 2004.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:05:51 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (6.6ms)
+Completed 200 OK in 28ms (Views: 22.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:07:31 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 1413ms (Views: 1409.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:07:33 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (4.4ms)
+Completed 200 OK in 27ms (Views: 19.3ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/api/cards/183" for ::1 at 2020-08-02 10:34:36 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"term"=>"hello", "definition"=>"world"}, "id"=>"183"}
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 183], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.7ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.7ms)[0m  [1m[33mUPDATE "cards" SET "term" = $1, "definition" = $2, "updated_at" = $3 WHERE "cards"."id" = $4[0m  [["term", "hello"], ["definition", "world"], ["updated_at", "2020-08-02 14:34:36.582758"], ["id", 183]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.9ms)
+Completed 200 OK in 85ms (Views: 14.2ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:34:42 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (13.2ms)
+Completed 200 OK in 30ms (Views: 23.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:35:16 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 1864ms (Views: 1854.2ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:36:21 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 474ms (Views: 469.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:36:43 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 527ms (Views: 522.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:36:44 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (3.9ms)
+Completed 200 OK in 27ms (Views: 19.7ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/api/cards/165" for ::1 at 2020-08-02 10:38:05 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"165", "term"=>"this", "definition"=>"... is working"}, "id"=>"165"}
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 165], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.6ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.4ms)[0m  [1m[33mUPDATE "cards" SET "term" = $1, "definition" = $2, "updated_at" = $3 WHERE "cards"."id" = $4[0m  [["term", "this"], ["definition", "... is working"], ["updated_at", "2020-08-02 14:38:05.500326"], ["id", 165]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 18ms (Views: 10.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:38:19 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (2.2ms)
+Completed 200 OK in 14ms (Views: 9.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:45:27 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 499ms (Views: 495.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:45:27 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (1.0ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (1.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (4.6ms)
+Completed 200 OK in 25ms (Views: 15.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:45:45 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 59ms (Views: 54.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:45:46 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (4.9ms)
+Completed 200 OK in 22ms (Views: 16.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:45:52 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 67ms (Views: 63.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:45:52 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.6ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (4.8ms)
+Completed 200 OK in 26ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:46:06 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 481ms (Views: 477.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:46:07 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (5.1ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (1.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (4.6ms)
+Completed 200 OK in 30ms (Views: 16.6ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:46:17 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 459ms (Views: 456.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:46:17 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (1.0ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (4.5ms)
+Completed 200 OK in 26ms (Views: 18.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:54:20 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 530ms (Views: 524.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:54:21 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (1.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (1.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (4.8ms)
+Completed 200 OK in 25ms (Views: 14.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:54:37 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 455ms (Views: 450.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:54:38 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (1.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.8ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (5.7ms)
+Completed 200 OK in 28ms (Views: 19.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 10:57:30 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 491ms (Views: 487.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 10:57:30 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.9ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (4.4ms)
+Completed 200 OK in 26ms (Views: 18.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 11:02:05 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 471ms (Views: 467.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 11:02:06 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.6ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (4.2ms)
+Completed 200 OK in 24ms (Views: 17.5ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/api/cards/166" for ::1 at 2020-08-02 11:02:20 -0400
+Processing by Api::CardsController#destroy as JSON
+  Parameters: {"id"=>"166"}
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 166], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[36mCard Destroy (0.4ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 166]]
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 15ms (Views: 9.6ms | ActiveRecord: 3.1ms)
+
+
+Started DELETE "/api/cards/167" for ::1 at 2020-08-02 11:02:20 -0400
+Processing by Api::CardsController#destroy as JSON
+  Parameters: {"id"=>"167"}
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 167], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[36mCard Destroy (0.6ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 167]]
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.6ms)
+Completed 200 OK in 13ms (Views: 8.5ms | ActiveRecord: 2.2ms)
+
+
+Started DELETE "/api/cards/168" for ::1 at 2020-08-02 11:02:21 -0400
+Processing by Api::CardsController#destroy as JSON
+  Parameters: {"id"=>"168"}
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 168], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[36mCard Destroy (0.4ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 168]]
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 16ms (Views: 9.2ms | ActiveRecord: 5.1ms)
+
+
+Started DELETE "/api/cards/169" for ::1 at 2020-08-02 11:02:21 -0400
+Processing by Api::CardsController#destroy as JSON
+  Parameters: {"id"=>"169"}
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 169], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:19
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[36mCard Destroy (0.6ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 169]]
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.6ms)
+Completed 200 OK in 13ms (Views: 8.5ms | ActiveRecord: 2.2ms)
+
+
+Started DELETE "/api/cards/170" for ::1 at 2020-08-02 11:02:22 -0400
+Processing by Api::CardsController#destroy as JSON
+  Parameters: {"id"=>"170"}
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 170], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[36mCard Destroy (0.3ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 170]]
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 11ms (Views: 7.9ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/api/cards/171" for ::1 at 2020-08-02 11:02:22 -0400
+Processing by Api::CardsController#destroy as JSON
+  Parameters: {"id"=>"171"}
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 171], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[36mCard Destroy (0.4ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 171]]
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 17ms (Views: 12.4ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/api/cards/177" for ::1 at 2020-08-02 11:02:23 -0400
+Processing by Api::CardsController#destroy as JSON
+  Parameters: {"id"=>"177"}
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 177], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[36mCard Destroy (0.5ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 177]]
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.3ms)
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/api/cards/178" for ::1 at 2020-08-02 11:02:23 -0400
+Processing by Api::CardsController#destroy as JSON
+  Parameters: {"id"=>"178"}
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 178], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[36mCard Destroy (0.3ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 178]]
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.6ms)
+Completed 200 OK in 12ms (Views: 8.1ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/api/cards/179" for ::1 at 2020-08-02 11:02:24 -0400
+Processing by Api::CardsController#destroy as JSON
+  Parameters: {"id"=>"179"}
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 179], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[36mCard Destroy (0.3ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 179]]
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 11ms (Views: 7.9ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/api/cards/180" for ::1 at 2020-08-02 11:02:24 -0400
+Processing by Api::CardsController#destroy as JSON
+  Parameters: {"id"=>"180"}
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 180], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[36mCard Destroy (0.3ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 180]]
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/api/cards/181" for ::1 at 2020-08-02 11:02:25 -0400
+Processing by Api::CardsController#destroy as JSON
+  Parameters: {"id"=>"181"}
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 181], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[36mCard Destroy (0.3ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 181]]
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.3ms)
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/api/cards/183" for ::1 at 2020-08-02 11:02:31 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"183", "term"=>"lets do this", "definition"=>"world"}, "id"=>"183"}
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 183], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.5ms)[0m  [1m[33mUPDATE "cards" SET "term" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["term", "lets do this"], ["updated_at", "2020-08-02 15:02:31.914154"], ["id", 183]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.3ms)
+Completed 200 OK in 14ms (Views: 9.0ms | ActiveRecord: 1.6ms)
+
+
+Started PATCH "/api/cards/183" for ::1 at 2020-08-02 11:02:40 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"183", "term"=>"lets do this", "definition"=>"Leeroy Jenkins!!!!!"}, "id"=>"183"}
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 183], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.6ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.4ms)[0m  [1m[33mUPDATE "cards" SET "definition" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["definition", "Leeroy Jenkins!!!!!"], ["updated_at", "2020-08-02 15:02:40.571901"], ["id", 183]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.8ms)
+Completed 200 OK in 14ms (Views: 8.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/decks/25" for ::1 at 2020-08-02 11:02:50 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"25"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 25]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (2.1ms)
+Completed 200 OK in 15ms (Views: 10.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api/cards/" for ::1 at 2020-08-02 11:04:50 -0400
+Processing by Api::CardsController#create as JSON
+  Parameters: {"set"=>{"id"=>"25", "title"=>"", "description"=>"", "user_id"=>"5"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mCard Create (0.9ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 25], ["created_at", "2020-08-02 15:04:50.089231"], ["updated_at", "2020-08-02 15:04:50.089231"]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 14ms (Views: 8.4ms | ActiveRecord: 2.0ms)
+
+
+Started PATCH "/api/cards/189" for ::1 at 2020-08-02 11:04:55 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"189", "term"=>"I ", "definition"=>""}, "id"=>"189"}
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 189], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.7ms)[0m  [1m[33mUPDATE "cards" SET "term" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["term", "I "], ["updated_at", "2020-08-02 15:04:55.192381"], ["id", 189]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.3ms)
+Completed 200 OK in 16ms (Views: 8.9ms | ActiveRecord: 2.5ms)
+
+
+Started PATCH "/api/cards/189" for ::1 at 2020-08-02 11:04:56 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"189", "term"=>"I AM ", "definition"=>""}, "id"=>"189"}
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 189], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (1.0ms)[0m  [1m[33mUPDATE "cards" SET "term" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["term", "I AM "], ["updated_at", "2020-08-02 15:04:56.179001"], ["id", 189]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 19ms (Views: 11.8ms | ActiveRecord: 2.8ms)
+
+
+Started PATCH "/api/cards/189" for ::1 at 2020-08-02 11:04:58 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"189", "term"=>"I AM A", "definition"=>""}, "id"=>"189"}
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 189], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.4ms)[0m  [1m[33mUPDATE "cards" SET "term" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["term", "I AM A"], ["updated_at", "2020-08-02 15:04:58.497463"], ["id", 189]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.5ms)
+Completed 200 OK in 16ms (Views: 9.5ms | ActiveRecord: 2.3ms)
+
+
+Started PATCH "/api/cards/189" for ::1 at 2020-08-02 11:04:59 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"189", "term"=>"I AM ", "definition"=>""}, "id"=>"189"}
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 189], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.7ms)[0m  [1m[33mUPDATE "cards" SET "term" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["term", "I AM "], ["updated_at", "2020-08-02 15:04:59.287658"], ["id", 189]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.3ms)
+Completed 200 OK in 18ms (Views: 9.7ms | ActiveRecord: 2.8ms)
+
+
+Started PATCH "/api/cards/189" for ::1 at 2020-08-02 11:05:03 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"189", "term"=>"I AM REACT GOD", "definition"=>""}, "id"=>"189"}
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 189], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.5ms)[0m  [1m[33mUPDATE "cards" SET "term" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["term", "I AM REACT GOD"], ["updated_at", "2020-08-02 15:05:03.311699"], ["id", 189]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.5ms)
+Completed 200 OK in 16ms (Views: 9.9ms | ActiveRecord: 1.8ms)
+
+
+Started PATCH "/api/cards/189" for ::1 at 2020-08-02 11:05:05 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"189", "term"=>"I AM", "definition"=>""}, "id"=>"189"}
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 189], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.6ms)[0m  [1m[33mUPDATE "cards" SET "term" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["term", "I AM"], ["updated_at", "2020-08-02 15:05:05.881348"], ["id", 189]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 18ms (Views: 11.2ms | ActiveRecord: 2.4ms)
+
+
+Started PATCH "/api/cards/189" for ::1 at 2020-08-02 11:05:10 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"189", "term"=>"I AM", "definition"=>"REACT REDUX GOD"}, "id"=>"189"}
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 189], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (1.1ms)[0m  [1m[33mUPDATE "cards" SET "definition" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["definition", "REACT REDUX GOD"], ["updated_at", "2020-08-02 15:05:10.771222"], ["id", 189]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 20ms (Views: 11.4ms | ActiveRecord: 3.1ms)
+
+
+Started PATCH "/api/cards/189" for ::1 at 2020-08-02 11:05:11 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"189", "term"=>"I AM", "definition"=>"REACT REDUX GOD!!!"}, "id"=>"189"}
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 189], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.5ms)[0m  [1m[33mUPDATE "cards" SET "definition" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["definition", "REACT REDUX GOD!!!"], ["updated_at", "2020-08-02 15:05:11.845117"], ["id", 189]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 15ms (Views: 9.3ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/decks/" for ::1 at 2020-08-02 11:06:50 -0400
+Processing by Api::DecksController#create as JSON
+  Parameters: {"user"=>{"id"=>"5"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:5
+  [1m[36mDeck Create (0.5ms)[0m  [1m[32mINSERT INTO "decks" ("title", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", ""], ["description", ""], ["user_id", 5], ["created_at", "2020-08-02 15:06:50.193438"], ["updated_at", "2020-08-02 15:06:50.193438"]]
+  ↳ app/controllers/api/decks_controller.rb:5
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 28], ["created_at", "2020-08-02 15:06:50.198055"], ["updated_at", "2020-08-02 15:06:50.198055"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (0.6ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 28], ["created_at", "2020-08-02 15:06:50.205287"], ["updated_at", "2020-08-02 15:06:50.205287"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 28], ["created_at", "2020-08-02 15:06:50.210123"], ["updated_at", "2020-08-02 15:06:50.210123"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 28], ["created_at", "2020-08-02 15:06:50.213938"], ["updated_at", "2020-08-02 15:06:50.213938"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[36mCard Create (0.9ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 28], ["created_at", "2020-08-02 15:06:50.217796"], ["updated_at", "2020-08-02 15:06:50.217796"]]
+  ↳ app/controllers/api/decks_controller.rb:7
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:7
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 28]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (2.0ms)
+Completed 200 OK in 44ms (Views: 9.3ms | ActiveRecord: 9.1ms)
+
+
+Started PATCH "/api/cards/190" for ::1 at 2020-08-02 11:06:59 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"190", "term"=>"New Set #", "definition"=>""}, "id"=>"190"}
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 190], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.3ms)[0m  [1m[33mUPDATE "cards" SET "term" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["term", "New Set #"], ["updated_at", "2020-08-02 15:06:59.149457"], ["id", 190]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.3ms)
+Completed 200 OK in 12ms (Views: 8.2ms | ActiveRecord: 1.5ms)
+
+
+Started PATCH "/api/cards/190" for ::1 at 2020-08-02 11:06:59 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"190", "term"=>"New Set #1", "definition"=>""}, "id"=>"190"}
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 190], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.4ms)[0m  [1m[33mUPDATE "cards" SET "term" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["term", "New Set #1"], ["updated_at", "2020-08-02 15:06:59.664094"], ["id", 190]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.3ms)
+Completed 200 OK in 15ms (Views: 9.7ms | ActiveRecord: 1.7ms)
+
+
+Started PATCH "/api/cards/190" for ::1 at 2020-08-02 11:07:01 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"190", "term"=>"New Set #1", "definition"=>"NEw"}, "id"=>"190"}
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 190], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.7ms)[0m  [1m[33mUPDATE "cards" SET "definition" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["definition", "NEw"], ["updated_at", "2020-08-02 15:07:01.378973"], ["id", 190]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 17ms (Views: 10.7ms | ActiveRecord: 2.6ms)
+
+
+Started PATCH "/api/cards/190" for ::1 at 2020-08-02 11:07:02 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"190", "term"=>"New Set #1", "definition"=>""}, "id"=>"190"}
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 190], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.4ms)[0m  [1m[33mUPDATE "cards" SET "definition" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["definition", ""], ["updated_at", "2020-08-02 15:07:02.915400"], ["id", 190]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.3ms)
+Completed 200 OK in 13ms (Views: 7.9ms | ActiveRecord: 1.7ms)
+
+
+Started PATCH "/api/cards/190" for ::1 at 2020-08-02 11:07:04 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"190", "term"=>"New Set #1", "definition"=>"New CArd "}, "id"=>"190"}
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 190], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.1ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.3ms)[0m  [1m[33mUPDATE "cards" SET "definition" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["definition", "New CArd "], ["updated_at", "2020-08-02 15:07:04.627132"], ["id", 190]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.3ms)
+Completed 200 OK in 13ms (Views: 7.9ms | ActiveRecord: 1.8ms)
+
+
+Started PATCH "/api/cards/190" for ::1 at 2020-08-02 11:07:05 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"190", "term"=>"New Set #1", "definition"=>"New CArd # 2"}, "id"=>"190"}
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 190], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (1.0ms)[0m  [1m[33mUPDATE "cards" SET "definition" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["definition", "New CArd # 2"], ["updated_at", "2020-08-02 15:07:05.471213"], ["id", 190]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.3ms)
+Completed 200 OK in 14ms (Views: 8.2ms | ActiveRecord: 2.4ms)
+
+
+Started DELETE "/api/cards/191" for ::1 at 2020-08-02 11:07:12 -0400
+Processing by Api::CardsController#destroy as JSON
+  Parameters: {"id"=>"191"}
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 191], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[36mCard Destroy (0.3ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 191]]
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.3ms)
+Completed 200 OK in 12ms (Views: 8.8ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/api/cards/192" for ::1 at 2020-08-02 11:07:13 -0400
+Processing by Api::CardsController#destroy as JSON
+  Parameters: {"id"=>"192"}
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 192], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[36mCard Destroy (0.3ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 192]]
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.3ms)
+Completed 200 OK in 11ms (Views: 7.9ms | ActiveRecord: 1.7ms)
+
+
+Started DELETE "/api/cards/193" for ::1 at 2020-08-02 11:07:14 -0400
+Processing by Api::CardsController#destroy as JSON
+  Parameters: {"id"=>"193"}
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 193], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:19
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[36mCard Destroy (0.3ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 193]]
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.3ms)
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/api/cards/194" for ::1 at 2020-08-02 11:07:16 -0400
+Processing by Api::CardsController#destroy as JSON
+  Parameters: {"id"=>"194"}
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 194], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[36mCard Destroy (0.3ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 194]]
+  ↳ app/controllers/api/cards_controller.rb:20
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:20
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.3ms)
+Completed 200 OK in 11ms (Views: 8.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 11:07:28 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 70ms (Views: 67.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/decks/28" for ::1 at 2020-08-02 11:07:34 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"28"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 28]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (2.2ms)
+Completed 200 OK in 15ms (Views: 10.1ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/api/cards/190" for ::1 at 2020-08-02 11:14:21 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"190", "term"=>"New Set #1", "definition"=>"Ковёр"}, "id"=>"190"}
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 190], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (2.1ms)[0m  [1m[33mUPDATE "cards" SET "definition" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["definition", "Ковёр"], ["updated_at", "2020-08-02 15:14:21.535951"], ["id", 190]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.3ms)
+Completed 200 OK in 17ms (Views: 9.2ms | ActiveRecord: 3.9ms)
+
+
+Started PATCH "/api/cards/190" for ::1 at 2020-08-02 11:14:27 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"190", "term"=>"Carpet", "definition"=>"Ковёр"}, "id"=>"190"}
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 190], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.3ms)[0m  [1m[33mUPDATE "cards" SET "term" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["term", "Carpet"], ["updated_at", "2020-08-02 15:14:27.637793"], ["id", 190]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.7ms)
+Completed 200 OK in 14ms (Views: 8.7ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/api/cards/" for ::1 at 2020-08-02 11:14:32 -0400
+Processing by Api::CardsController#create as JSON
+  Parameters: {"set"=>{"id"=>"28", "title"=>"", "description"=>"", "user_id"=>"5"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[36mCard Create (0.6ms)[0m  [1m[32mINSERT INTO "cards" ("term", "definition", "deck_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["term", ""], ["definition", ""], ["deck_id", 28], ["created_at", "2020-08-02 15:14:32.905412"], ["updated_at", "2020-08-02 15:14:32.905412"]]
+  ↳ app/controllers/api/cards_controller.rb:6
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:6
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 12ms (Views: 7.7ms | ActiveRecord: 1.4ms)
+
+
+Started PATCH "/api/cards/195" for ::1 at 2020-08-02 11:15:00 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"195", "term"=>"", "definition"=>"Лампочка"}, "id"=>"195"}
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 195], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.4ms)[0m  [1m[33mUPDATE "cards" SET "definition" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["definition", "Лампочка"], ["updated_at", "2020-08-02 15:15:00.252962"], ["id", 195]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 16ms (Views: 10.9ms | ActiveRecord: 1.8ms)
+
+
+Started PATCH "/api/cards/195" for ::1 at 2020-08-02 11:15:04 -0400
+Processing by Api::CardsController#update as JSON
+  Parameters: {"card"=>{"id"=>"195", "term"=>"Lightbulb", "definition"=>"Лампочка"}, "id"=>"195"}
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 195], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[36mCard Update (0.4ms)[0m  [1m[33mUPDATE "cards" SET "term" = $1, "updated_at" = $2 WHERE "cards"."id" = $3[0m  [["term", "Lightbulb"], ["updated_at", "2020-08-02 15:15:04.248611"], ["id", 195]]
+  ↳ app/controllers/api/cards_controller.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/cards_controller.rb:26
+  Rendering api/cards/show.json.jbuilder
+  Rendered api/cards/show.json.jbuilder (0.4ms)
+Completed 200 OK in 13ms (Views: 8.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/decks/28" for ::1 at 2020-08-02 11:15:14 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"28"}
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 28]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (2.6ms)
+Completed 200 OK in 16ms (Views: 10.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 11:38:09 -0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (34.7ms)
+Completed 200 OK in 1824ms (Views: 1810.5ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/api/decks/28" for ::1 at 2020-08-02 11:38:11 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"28"}
+  [1m[36mDeck Load (0.9ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (3.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 28]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (41.7ms)
+Completed 200 OK in 93ms (Views: 46.5ms | ActiveRecord: 19.7ms)
+
+
+Started PATCH "/api/decks/28" for ::1 at 2020-08-02 11:39:14 -0400
+Processing by Api::DecksController#update as JSON
+  Parameters: {"set"=>{"id"=>"28", "title"=>"Russian Household Items", "description"=>"Learn Russian Household Items"}, "id"=>"28"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:23
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:23
+  [1m[36mDeck Update (1.2ms)[0m  [1m[33mUPDATE "decks" SET "title" = $1, "description" = $2, "updated_at" = $3 WHERE "decks"."id" = $4[0m  [["title", "Russian Household Items"], ["description", "Learn Russian Household Items"], ["updated_at", "2020-08-02 15:39:14.545615"], ["id", 28]]
+  ↳ app/controllers/api/decks_controller.rb:23
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:23
+  Rendering api/decks/updated.json.jbuilder
+  Rendered api/decks/updated.json.jbuilder (0.6ms)
+Completed 200 OK in 25ms (Views: 11.2ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 11:47:34 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 511ms (Views: 506.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/decks/28" for ::1 at 2020-08-02 11:47:34 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"28"}
+  [1m[36mDeck Load (0.7ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (1.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 28]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (7.4ms)
+Completed 200 OK in 33ms (Views: 24.5ms | ActiveRecord: 2.0ms)
+
+
+Started PATCH "/api/decks/undefined" for ::1 at 2020-08-02 11:48:01 -0400
+Processing by Api::DecksController#update as JSON
+  Parameters: {"set"=>{"description"=>"Study Russian Household Items"}, "id"=>"undefined"}
+  [1m[36mDeck Load (0.8ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:22
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.0ms)
+
+
+
+NoMethodError - undefined method `update!' for nil:NilClass:
+  app/controllers/api/decks_controller.rb:23:in `update'
+
+Started GET "/" for ::1 at 2020-08-02 11:48:47 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 574ms (Views: 566.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/decks/28" for ::1 at 2020-08-02 11:48:48 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"28"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (1.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 28]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (4.9ms)
+Completed 200 OK in 33ms (Views: 24.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2020-08-02 11:48:50 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (1.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 52ms (Views: 48.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/decks/28" for ::1 at 2020-08-02 11:48:50 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"28"}
+  [1m[36mDeck Load (2.9ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (6.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 28]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (9.0ms)
+Completed 200 OK in 32ms (Views: 15.9ms | ActiveRecord: 9.6ms)
+
+
+Started PATCH "/api/decks/undefined" for ::1 at 2020-08-02 11:48:54 -0400
+Processing by Api::DecksController#update as JSON
+  Parameters: {"set"=>{"description"=>"Study Russian Household Items"}, "id"=>"undefined"}
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:22
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.3ms)
+
+
+
+NoMethodError - undefined method `update!' for nil:NilClass:
+  app/controllers/api/decks_controller.rb:23:in `update'
+
+Started GET "/" for ::1 at 2020-08-02 11:50:49 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 777ms (Views: 773.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/decks/28" for ::1 at 2020-08-02 11:50:50 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"28"}
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.8ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 28]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (4.5ms)
+Completed 200 OK in 25ms (Views: 19.3ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/api/decks/undefined" for ::1 at 2020-08-02 11:52:52 -0400
+Processing by Api::DecksController#update as JSON
+  Parameters: {"set"=>{"description"=>"Lesarn Russian Household Items"}, "id"=>"undefined"}
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:22
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.3ms)
+
+
+
+NoMethodError - undefined method `update!' for nil:NilClass:
+  app/controllers/api/decks_controller.rb:23:in `update'
+
+Started GET "/" for ::1 at 2020-08-02 11:53:15 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 482ms (Views: 478.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/decks/28" for ::1 at 2020-08-02 11:53:16 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"28"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 28]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (2.3ms)
+Completed 200 OK in 24ms (Views: 18.5ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/api/decks/undefined" for ::1 at 2020-08-02 11:57:08 -0400
+Processing by Api::DecksController#update as JSON
+  Parameters: {"set"=>{"description"=>"Learn Rsfsussian Household Items"}, "id"=>"undefined"}
+  [1m[36mDeck Load (1.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:22
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.3ms)
+
+
+
+NoMethodError - undefined method `update!' for nil:NilClass:
+  app/controllers/api/decks_controller.rb:23:in `update'
+
+Started GET "/" for ::1 at 2020-08-02 11:57:10 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 537ms (Views: 533.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/decks/28" for ::1 at 2020-08-02 11:57:11 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"28"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 28]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (3.3ms)
+Completed 200 OK in 30ms (Views: 22.5ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/api/decks/undefined" for ::1 at 2020-08-02 12:04:21 -0400
+Processing by Api::DecksController#update as JSON
+  Parameters: {"set"=>{"description"=>"Learn Rusfsssian Household Items"}, "id"=>"undefined"}
+  [1m[36mDeck Load (1.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:22
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 1.4ms)
+
+
+
+NoMethodError - undefined method `update!' for nil:NilClass:
+  app/controllers/api/decks_controller.rb:23:in `update'
+
+Started GET "/" for ::1 at 2020-08-02 12:04:23 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oYnlaSpPpHtNE-tu_gXByA"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered api/users/_user.json.jbuilder (0.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 502ms (Views: 498.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/decks/28" for ::1 at 2020-08-02 12:04:24 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"28"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (1.0ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 28]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (8.0ms)
+Completed 200 OK in 27ms (Views: 21.5ms | ActiveRecord: 1.4ms)
+
+
+Started PATCH "/api/decks/28" for ::1 at 2020-08-02 12:04:28 -0400
+Processing by Api::DecksController#update as JSON
+  Parameters: {"set"=>{"id"=>"28", "title"=>"Russian Household Items", "description"=>"Study Russian Household Items"}, "id"=>"28"}
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/decks_controller.rb:23
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:23
+  [1m[36mDeck Update (1.1ms)[0m  [1m[33mUPDATE "decks" SET "description" = $1, "updated_at" = $2 WHERE "decks"."id" = $3[0m  [["description", "Study Russian Household Items"], ["updated_at", "2020-08-02 16:04:28.764257"], ["id", 28]]
+  ↳ app/controllers/api/decks_controller.rb:23
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/decks_controller.rb:23
+  Rendering api/decks/updated.json.jbuilder
+  Rendered api/decks/updated.json.jbuilder (0.9ms)
+Completed 200 OK in 21ms (Views: 11.4ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/api/decks/28" for ::1 at 2020-08-02 12:04:38 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"28"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:17
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 28]]
+  ↳ app/views/api/decks/show.json.jbuilder:7
+  Rendered api/decks/show.json.jbuilder (1.7ms)
+Completed 200 OK in 17ms (Views: 10.6ms | ActiveRecord: 0.8ms)
+
+

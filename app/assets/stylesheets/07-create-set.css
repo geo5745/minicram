@@ -77,6 +77,10 @@
     color: silver;
 }
 
+.create-set-messages > section {
+     color: red;   
+}
+
 .cards-container {
     margin-left: 15%;
     width:70%;

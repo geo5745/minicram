@@ -1,4 +1,4 @@
-import {RECEIVE_ONE_SET, CLEAR_SET, DELETE_CARD} from '../actions/api_actions';
+import {RECEIVE_ONE_SET, CLEAR_SET, DELETE_CARD, ADD_CARD, UPDATE_CARD} from '../actions/api_actions';
 import {merge} from 'lodash';
 
 const initialState = {}
@@ -15,6 +15,13 @@ const cardsReducer = (state = initialState,action) => {
             let newState = merge({},state);
             delete newState[action.cardId];
             return newState;
+        case ADD_CARD:
+            let newCard = {[action.card.id]: action.card};
+            return merge({},state,newCard);
+        case UPDATE_CARD:
+            let nextState = merge({},state);
+            nextState[action.card.id] = action.card;
+            return nextState;
         default:
             return state;
     }
