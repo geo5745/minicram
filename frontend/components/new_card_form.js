@@ -52,13 +52,13 @@ class NewCardForm extends React.Component {
                     </div>
                     <div className = "new-card-organize-buttons">
                         <button className="inactive"><i className="fa fa-align-justify" aria-hidden="true"></i></button>
-                        <button onClick={this.handleDelete}><i className="fa fa-trash" aria-hidden="true"></i></button>
+                        <button onClick={this.props.authorized ? this.handleDelete : null}><i className="fa fa-trash" aria-hidden="true"></i></button>
                     </div>
                 </div>
                 <div className = "new-card-content">
                     <div className="term-container">
                         <div className = "term-input-container">
-                            <input onChange = {({target: {value}} ) => this.debouncedUpdate("term",value)} type="text" value={this.state.term || ''}/>
+                            <input onChange = {this.props.authorized ? ({target: {value}} ) => this.debouncedUpdate("term",value) : null} type="text" value={this.state.term || ''}/>
                         </div>
                         <div className = "labels-container">
                             <div className="input-label">TERM</div>
@@ -67,7 +67,7 @@ class NewCardForm extends React.Component {
                     </div>
                     <div className="definition-container">
                     <div className = "definition-input-container">
-                            <input onChange = {({target: {value}} ) => this.debouncedUpdate("definition",value)} type="text" value={this.state.definition || ''}/>
+                            <input onChange = {this.props.authorized ? ({target: {value}} ) => this.debouncedUpdate("definition",value) : null} type="text" value={this.state.definition || ''}/>
                         </div>
                     <div className = "labels-container">
                         <div className="input-label">DEFINITION</div>
@@ -75,7 +75,7 @@ class NewCardForm extends React.Component {
                     </div>
                     </div>
                     <div className="image-drop-container">
-                        <button>
+                        <button className="inactive">
                             <i className="fa fa-file-image" aria-hidden="true"></i>
                         </button>
                     </div>

@@ -6,6 +6,7 @@ export const DELETE_CARD = "DELETE_CARD";
 export const ADD_CARD = "ADD_CARD";
 export const UPDATE_CARD = "UPDATE_CARD";
 export const UPDATE_SET = "UPDATE_SET";
+export const RECEIVE_MANY_SETS = "RECEIVE_MANY_SETS";
 
 
 const receiveOneSet = (set) => {
@@ -49,6 +50,13 @@ const updateOneSet = (set) => {
     }
 };
 
+const receiveManySets = (sets) => {
+    return {
+        type: RECEIVE_MANY_SETS,
+        sets
+    }
+};
+
 
 export const fetchSet = setId => dispatch => {
     return apiUtil.fetchSet(setId)
@@ -86,6 +94,16 @@ export const updateSet = (set) => dispatch => {
     .then(set => dispatch(updateOneSet(set)))
 };
 
+export const deleteSet = (setId) => dispatch => {
+    return apiUtil.deleteSet(setId)
+    .then(() => dispatch(clearOutSet()))
+};
+
+export const fetchSetCollection = (user) => dispatch => {
+    return apiUtil.fetchSetCollection(user)
+    .then(sets => dispatch(receiveManySets(sets)))
+};
+
 window.createSet = createSet;
 window.fetchSet = fetchSet;
 window.clearSet = clearSet;
@@ -93,3 +111,5 @@ window.deleteCard = deleteCard;
 window.addCard = addCard;
 window.updateCard = updateCard;
 window.updateSet = updateSet;
+window.deleteSet = deleteSet;
+window.fetchSetCollection = fetchSetCollection;

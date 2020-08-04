@@ -97,6 +97,7 @@
     align-items: center;
     font-weight: 500;
     text-decoration: underline turquoise;
+    transition: 0.2s;
 }
 
 
@@ -105,3 +106,28 @@
     color: gold;
 }
 
+.create-big-button {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.create-set-footer-button {
+    text-align: center;
+    vertical-align: bottom;
+    box-sizing: border-box;
+    padding: 22px;
+    margin: 10px 0px;
+    width:225px;
+    height: 70px;
+    font-size: 15pt;
+    border-radius: 5px;
+    background-color:#3ccece;
+    color: white;
+    transition: 0.1s;
+}
+
+.create-set-footer-button:hover {
+    background-color: #28a7a7;
+}

@@ -43,3 +43,18 @@ export const updateSet = (set) => {
         data: {set}
     })
 };
+
+export const deleteSet = (setId) => {
+    return $.ajax({
+        method: 'delete',
+        url: `api/decks/${setId}`
+    })
+};
+
+export const fetchSetCollection = (user) => {
+    return $.ajax({
+        method: 'get',
+        url: 'api/decks/',
+        data: {user}
+    })
+}
