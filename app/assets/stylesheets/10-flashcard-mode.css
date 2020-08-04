@@ -1,3 +1,287 @@
-.flashcard-nav:disabled {
-    color:red;
+.flashcard-main-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: white;
 }
+
+.flashcard-main-column {
+    margin-left: 20%;
+    width: 820px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+}
+
+.directory-container {
+    font-size: 7pt;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    color: grey;
+    font-weight: 500;
+}
+
+.directory-container > a {
+    font-size: 9pt;
+    color: black;
+    transition: 0.1s;
+}
+
+.directory-container > a:hover {
+    font-size: 9pt;
+    color:gold;
+}
+
+.set-title-container {
+    padding-top: 10px;
+    font-size: 22pt;
+    font-weight: 700;
+}
+
+.flashcard-and-nav-container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 50px;
+
+}
+
+.flashcard-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.flashcard-menu > * {
+    margin-bottom:17px;
+    font-size: 10pt;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.flashcard-menu-header {
+    font-size: 12px;
+    color: #939bb4;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+u {
+    text-decoration: none;
+    border-bottom: 5px solid gold;
+  }
+
+
+
+.flashcard-menu-link > a {
+    transition: 0.1s;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.spacer {
+    display:flex;
+    width:25px;
+}
+
+.flashcard-menu-link > a:hover {
+    color:gold;
+}
+
+.flashcard-menu-link > a > div > i {
+    color: #4256b2;
+    font-size: 12pt;
+}
+.flashcard-menu-link > a > div > i:hover {
+    color: #4256b2;
+    font-size: 12pt;
+}
+
+hr.flashcards-divider {
+    width: 100%;
+    border-top: 2px solid #f6f7fb;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+
+.flashcards-footer {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.flashcards-creator-info {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.flashcards-creator-column {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding-left: 10px;
+}
+
+.flashcards-created-by {
+    font-size: 7pt;
+    color: #939bb4;
+    /* letter-spacing: 0.5px; */
+    font-weight: 500;
+}
+
+
+.creator-icon {
+    /* background: url(https://img2.pngio.com/water-cartoon-png-download-1170780-free-transparent-airedale-airedale-terrier-png-900_600.jpg); */
+    background: url(https://storage.needpix.com/rsynced_images/cat-4358536_1280.jpg);
+    background-repeat: no-repeat;
+    background-size: 55px 55px;
+    /* background-size: 240px 160px; */
+    /* background-position: -90px 0px; */
+    background-color: white;
+    border: 1px solid darkgray;
+    height:52px;
+    width:52px;
+    border-radius: 26px;
+}
+
+.footer-button {
+    height: 40px;
+    width:40px;
+    border-radius: 20px;
+    margin: 3px;
+    border: 1px solid #f9f9f9;
+    font-size: 12pt;
+    transition: 0.2s;
+    text-align: center;
+    position: relative;
+}
+
+.footer-button .tooltiptext {
+    visibility: hidden;
+    width: 90px;
+    background-color: #4256b2;
+    color: #fff;
+    font-size: 10pt;
+    font-weight: 500;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    top:100%;
+    left:50%;
+    margin-left: -60px;
+    display: block;
+    z-index: 1;
+}
+
+.footer-button:hover {
+    color: gold;
+}
+
+.footer-button:hover .tooltiptext {
+    visibility: visible;
+}
+
+.flashcards-description {
+    margin: 30px 0px;
+    font-size: 13pt;
+    font-weight: 300;
+}
+
+.flashcards-nav {
+    margin-top:20px;
+    margin-bottom:50px;
+    font-size:10pt;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.flashcard-nav-button {
+    font-size: 14pt;
+}
+
+
+.flashcard-nav-button:disabled {
+    color:lightgrey;
+    cursor: default;
+}
+
+
+
+/* Flip card magic here */
+
+
+.flip-card {
+    background-color: transparent;
+    width: 555px;
+    height: 345px;
+    perspective: 2000px;
+}
+  
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+/* works best */
+  /* .flip-card:hover .flip-card-inner {
+    transform: rotateX(180deg);
+  } */
+
+.flip-card.hover .flip-card-inner {
+    transform: rotateX(180deg);
+}
+
+
+
+
+  
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+  
+.flip-card-front {
+    background-color: #fefefe;
+    color: black;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size:25pt;
+}
+  
+.flip-card-back {
+    background-color: aliceblue;
+    color: black;
+    transform: rotateX(180deg);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size:25pt;
+}
+
+
+
+
+
+

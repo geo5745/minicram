@@ -29,12 +29,12 @@
 }
 
 .user-icon {
-    background: url(https://img2.pngio.com/water-cartoon-png-download-1170780-free-transparent-airedale-airedale-terrier-png-900_600.jpg);
-    /* background: url(https://storage.needpix.com/rsynced_images/cat-4358536_1280.jpg); */
+    /* background: url(https://img2.pngio.com/water-cartoon-png-download-1170780-free-transparent-airedale-airedale-terrier-png-900_600.jpg); */
+    background: url(https://storage.needpix.com/rsynced_images/cat-4358536_1280.jpg);
     background-repeat: no-repeat;
-    /* background-size: 120px 120px; */
-    background-size: 240px 160px;
-    background-position: -90px 0px;
+    background-size: 120px 120px;
+    /* background-size: 240px 160px; */
+    /* background-position: -90px 0px; */
     background-color: white;
     border: 1px solid darkgray;
     height:115px;
