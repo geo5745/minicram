@@ -46,20 +46,20 @@ class FlashcardMode extends React.Component{
 
     lastClick() {
         if (this.state.currentIndex > 1) {
+            this.setState({flipCardClass: "flip-card"});
             let j = this.state.currentIndex - 1;
             this.setState({currentIndex: j});
             this.setState({rightButtonDisabled: false});
-            this.setState({flipCardClass: "flip-card"});
             if (j === 1) this.setState({leftButtonDisabled: true});
         }
     }
 
     nextClick() {
         if (this.state.currentIndex < this.props.sets.card_count) {
+            this.setState({flipCardClass: "flip-card"});
             let i = this.state.currentIndex + 1;
             this.setState({currentIndex: i});
             this.setState({leftButtonDisabled: false});
-            this.setState({flipCardClass: "flip-card"});
             if (i === this.props.sets.card_count) this.setState({rightButtonDisabled: true});
         }
     }
@@ -76,20 +76,20 @@ class FlashcardMode extends React.Component{
         return (
             <div className = "flashcard-main-div">
                 <div className = "flashcard-main-column">
-                    <div className = "directory-container"><a href="#">Home</a> <i className="fa fa-chevron-right" aria-hidden="true"></i> <a href="#">Arts &amp; Humanities</a> <i className="fa fa-chevron-right" aria-hidden="true"></i> <a href="#">English</a> <i className="fa fa-chevron-right" aria-hidden="true"></i> <a href="#">Linguistics</a></div>
+                    <div className = "directory-container"><a>Home</a> <i className="fa fa-chevron-right" aria-hidden="true"></i> <a>Arts &amp; Humanities</a> <i className="fa fa-chevron-right" aria-hidden="true"></i> <a>English</a> <i className="fa fa-chevron-right" aria-hidden="true"></i> <a>Linguistics</a></div>
                     <div className ="set-title-container">{this.state.title}</div>
                     <div className = "flashcard-and-nav-container">
                         <div className="flashcard-menu">
                             <div className = "flashcard-menu-header">STUDY</div>
-                            <div className = "flashcard-menu-link"><a href="#"><div className="spacer"><i className="fa fa-address-card" aria-hidden="true"></i></div><div><u> Flashcards</u></div></a></div>
-                            <div className = "flashcard-menu-link"><a href="#"><div className="spacer"><i className="fa fa-graduation-cap" aria-hidden="true"></i></div><div>  Learn</div></a></div>
-                            <div className = "flashcard-menu-link"><a className="inactive" href="#"><div className="spacer"><i className="fa fa-file-word" aria-hidden="true"></i></div><div>  Write</div></a></div>
-                            <div className = "flashcard-menu-link"><a className="inactive" href="#"><div className="spacer"><i className="fa fa-volume-up" aria-hidden="true"></i></div><div>  Spell</div></a></div>
-                            <div className = "flashcard-menu-link"><a className="inactive" href="#"><div className="spacer"><i className="fa fa-hourglass-start" aria-hidden="true"></i></div><div>  Test</div></a></div>
+                            <div className = "flashcard-menu-link"><a href=""><div className="spacer"><i className="fa fa-address-card" aria-hidden="true"></i></div><div><u> Flashcards</u></div></a></div>
+                            <div className = "flashcard-menu-link"><Link to={`/set/${this.props.setId}/learn`}><div className="spacer"><i className="fa fa-graduation-cap" aria-hidden="true"></i></div><div>  Learn</div></Link></div>
+                            <div className = "flashcard-menu-link"><a className="inactive"><div className="spacer"><i className="fa fa-file-word" aria-hidden="true"></i></div><div>  Write</div></a></div>
+                            <div className = "flashcard-menu-link"><a className="inactive"><div className="spacer"><i className="fa fa-volume-up" aria-hidden="true"></i></div><div>  Spell</div></a></div>
+                            <div className = "flashcard-menu-link"><a className="inactive"><div className="spacer"><i className="fa fa-hourglass-start" aria-hidden="true"></i></div><div>  Test</div></a></div>
                             <div className = "flashcard-menu-header">PLAY</div>
-                            <div className = "flashcard-menu-link"><a className="inactive" href="#"><div className="spacer"><i className="fa fa-object-ungroup" aria-hidden="true"></i></div><div>  Match</div></a></div>
-                            <div className = "flashcard-menu-link"><a className="inactive" href="#"><div className="spacer"><i className="fa fa-rocket" aria-hidden="true"></i></div><div>  Gravity</div></a></div>
-                            <div className = "flashcard-menu-link"><a className="inactive" href="#"><div className="spacer"><i className="fa fa-gamepad" aria-hidden="true"></i></div><div>  Live</div></a></div>
+                            <div className = "flashcard-menu-link"><a className="inactive"><div className="spacer"><i className="fa fa-object-ungroup" aria-hidden="true"></i></div><div>  Match</div></a></div>
+                            <div className = "flashcard-menu-link"><a className="inactive"><div className="spacer"><i className="fa fa-rocket" aria-hidden="true"></i></div><div>  Gravity</div></a></div>
+                            <div className = "flashcard-menu-link"><a className="inactive"><div className="spacer"><i className="fa fa-gamepad" aria-hidden="true"></i></div><div>  Live</div></a></div>
                         </div>
                         <div className="flashcards">
                             <div onClick={this.toggleFlip} className={this.state.flipCardClass}>

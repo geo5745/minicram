@@ -9,6 +9,7 @@ import Goodbye from './goodbye';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import UserContainer from './user_container';
 import FlashcardModeContainer from './flashcard_mode_container';
+import LearnModeContainer from './learn_mode_container';
 
 
 const App = () => (
@@ -21,6 +22,7 @@ const App = () => (
         <ProtectedRoute path="/set/:setId/edit" component={EditSetContainer}/>
         <Route exact path="/goodbye" component={Goodbye}/>
         <Route path="/set/:setId/flashcards" component={FlashcardModeContainer}/>
+        <Route path="/set/:setId/learn" component={LearnModeContainer}/>
     </>
 );
 
