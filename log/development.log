@@ -50323,3 +50323,86 @@ Processing by Api::SessionsController#destroy as JSON
 Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 6.1ms)
 
 
+Started GET "/" for ::1 at 2020-08-05 23:03:21 -0400
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendered static_pages/root.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 3354ms (Views: 3343.3ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/api/session" for ::1 at 2020-08-05 23:03:28 -0400
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"demo", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "demo"], ["LIMIT", 1]]
+  ↳ app/controllers/api/sessions_controller.rb:6
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "demo"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "demo"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@demo.com"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "ldL6uh4Mq_JAVC0v-Xy5cQ"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "ldL6uh4Mq_JAVC0v-Xy5cQ"], ["updated_at", "2020-08-06 03:03:28.655198"], ["id", 5]]
+  ↳ app/models/user.rb:33
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:33
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (2.8ms)
+Completed 200 OK in 307ms (Views: 12.5ms | ActiveRecord: 18.4ms)
+
+
+Started GET "/api/decks/?user%5Bid%5D=5" for ::1 at 2020-08-05 23:03:28 -0400
+Processing by Api::DecksController#index as JSON
+  Parameters: {"user"=>{"id"=>"5"}}
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.6ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/api/decks/index.json.jbuilder:2
+  [1m[36mCard Load (1.0ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34)[0m  [["deck_id", 55], ["deck_id", 59], ["deck_id", 10], ["deck_id", 11], ["deck_id", 12], ["deck_id", 13], ["deck_id", 14], ["deck_id", 15], ["deck_id", 16], ["deck_id", 17], ["deck_id", 18], ["deck_id", 19], ["deck_id", 20], ["deck_id", 21], ["deck_id", 22], ["deck_id", 23], ["deck_id", 24], ["deck_id", 25], ["deck_id", 26], ["deck_id", 27], ["deck_id", 28], ["deck_id", 31], ["deck_id", 32], ["deck_id", 33], ["deck_id", 62], ["deck_id", 34], ["deck_id", 60], ["deck_id", 37], ["deck_id", 65], ["deck_id", 8], ["deck_id", 9], ["deck_id", 42], ["deck_id", 44], ["deck_id", 45]]
+  ↳ app/views/api/decks/index.json.jbuilder:2
+  Rendered api/decks/index.json.jbuilder (52.2ms)
+Completed 200 OK in 78ms (Views: 52.9ms | ActiveRecord: 13.5ms)
+
+
+Started GET "/api/decks/9" for ::1 at 2020-08-05 23:03:35 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"9"}
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:26
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.5ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 9]]
+  ↳ app/views/api/decks/show.json.jbuilder:4
+  Rendered api/decks/show.json.jbuilder (5.8ms)
+Completed 200 OK in 27ms (Views: 19.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/decks/9" for ::1 at 2020-08-05 23:03:36 -0400
+Processing by Api::DecksController#show as JSON
+  Parameters: {"id"=>"9"}
+  [1m[36mDeck Load (0.8ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/decks_controller.rb:26
+  Rendering api/decks/show.json.jbuilder
+  [1m[36mCard Load (0.6ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 9]]
+  ↳ app/views/api/decks/show.json.jbuilder:4
+  Rendered api/decks/show.json.jbuilder (2.8ms)
+Completed 200 OK in 20ms (Views: 12.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/decks/?user%5Bid%5D=5" for ::1 at 2020-08-05 23:03:39 -0400
+Processing by Api::DecksController#index as JSON
+  Parameters: {"user"=>{"id"=>"5"}}
+  Rendering api/decks/index.json.jbuilder
+  [1m[36mDeck Load (0.6ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/api/decks/index.json.jbuilder:2
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."deck_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34)[0m  [["deck_id", 55], ["deck_id", 59], ["deck_id", 10], ["deck_id", 11], ["deck_id", 12], ["deck_id", 13], ["deck_id", 14], ["deck_id", 15], ["deck_id", 16], ["deck_id", 17], ["deck_id", 18], ["deck_id", 19], ["deck_id", 20], ["deck_id", 21], ["deck_id", 22], ["deck_id", 23], ["deck_id", 24], ["deck_id", 25], ["deck_id", 26], ["deck_id", 27], ["deck_id", 28], ["deck_id", 31], ["deck_id", 32], ["deck_id", 33], ["deck_id", 62], ["deck_id", 34], ["deck_id", 60], ["deck_id", 37], ["deck_id", 65], ["deck_id", 8], ["deck_id", 9], ["deck_id", 42], ["deck_id", 44], ["deck_id", 45]]
+  ↳ app/views/api/decks/index.json.jbuilder:2
+  Rendered api/decks/index.json.jbuilder (12.0ms)
+Completed 200 OK in 26ms (Views: 23.6ms | ActiveRecord: 1.3ms)
+
+

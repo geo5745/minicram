@@ -45,7 +45,7 @@ class Header extends React.Component {
         const logoutButton = (<Link className ="goldbutton" onClick={this.handleLogout} to="/goodbye">Log out</Link>)
         
         if (id) {
-            currentUsername = (<p>{this.props.users[id].username}</p>);
+            currentUsername = (<Link to={`/user/${this.props.session.id}`}>{this.props.users[id].username}</Link>);
         }   
 
         return (
