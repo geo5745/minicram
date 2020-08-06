@@ -20,7 +20,7 @@
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    flex-grow: 1;
+    width:100%;
 }
 .splash-slogan {
     width:50%;
@@ -31,4 +31,64 @@
 
 .animation-container {
     width:50%;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* flex-grow: 1; */
+}
+
+.animation-pictures {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.opacity-rectangle {
+    height:500px;
+    background-color: #3B4c9A;
+    opacity:0.5;
+    display: flex;
+    flex-direction: row;
+    flex-grow:1;
+    transition: 0s
+}
+
+.opacity-rectangle.opaque {
+    opacity: 0;
+    transition: 0.5s;
+}
+
+
+.background-image-1 {
+    background-image: url("https://minicram-dev.s3.amazonaws.com/images/splash1a.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0px -100px;
+}
+
+.background-image-2 {
+    background-image: url("https://minicram-dev.s3.amazonaws.com/images/splash2a.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0px -100px;
+}
+
+.background-image-3 {
+    background-image: url("https://minicram-dev.s3.amazonaws.com/images/splash3a.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0px -100px;
+}
+
+.grow-empty {
+    height: 5px;
+    background-color: #3B4c9A;
+    width: 0;
+}
+
+.grow-full {
+    height: 5px;
+    width:100%;
+    background-color: gold;
+    transition: 5s;
 }
