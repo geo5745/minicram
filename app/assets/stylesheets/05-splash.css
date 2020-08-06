@@ -1,20 +1,34 @@
-
-
-
-
 .splash {
     background-color: #3B4c9A;
-    height:700px;
-    flex-direction: row;
-    justify-content: space-evenly;
+    min-height:1000px;
+    flex-direction: column;
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
     font-size: 24pt;
     color: white;  
-    position: fixed; /* Sit on top of the page content */
-    display: block; /* Hidden by default */
-    top:0;
+    /* position: fixed;  */
+     /* Hidden by default */
+    /* top:0;
     left: 0;
     right: 0;
-    bottom: 0;
-    z-index:-1;
+    bottom: 0; */
+    /* z-index:1; */
+}
+
+.splash-first-row {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+.splash-slogan {
+    width:50%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.animation-container {
+    width:50%;
 }
