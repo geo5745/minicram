@@ -19,6 +19,7 @@ class FlashcardMode extends React.Component{
             flipCardClass: "flip-card",
         }
         this.toggleFlip = this.toggleFlip.bind(this);
+        this.deleteThisSet = this.deleteThisSet.bind(this);
         
     }
 
@@ -70,6 +71,14 @@ class FlashcardMode extends React.Component{
         } else {
             this.setState({flipCardClass: "flip-card"});
         }
+    }
+
+    deleteThisSet() {
+        this.props.deleteSet(this.props.setId)
+    }
+
+    trashSet() {
+        if (this.props.session.id === this.props.sets.user_id) this.deleteThisSet();
     }
 
     render() {
@@ -131,7 +140,7 @@ class FlashcardMode extends React.Component{
                             <button className = "footer-button inactive"><i className="fa fa-info" aria-hidden="true"></i>
                                 <span className="tooltiptext">Info</span>
                             </button>
-                            <button className = "footer-button inactive"><i className="fa fa-trash" aria-hidden="true"></i>
+                            <button className = "footer-button"><Link onClick={()=>this.trashSet()} to={`/user/${this.props.session.id}`}><i className="fa fa-trash" aria-hidden="true"></i></Link>
                                 <span className="tooltiptext">Delete</span>
                             </button>
                         </div>

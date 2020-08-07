@@ -1,6 +1,6 @@
 import FlashcardMode from './flashcard_mode';
 import {connect} from 'react-redux';
-import {fetchSet} from '../actions/api_actions';
+import {fetchSet, deleteSet} from '../actions/api_actions';
 import { withRouter} from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -12,7 +12,8 @@ const mapStateToProps = (state, ownProps) => ({
     })
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchSet: (setId) => dispatch(fetchSet(setId))
+    fetchSet: (setId) => dispatch(fetchSet(setId)),
+    deleteSet: (setId) => dispatch(deleteSet(setId))
 });
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(FlashcardMode));
