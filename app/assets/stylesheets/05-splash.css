@@ -1,11 +1,11 @@
 .splash {
-    background-color: #3B4c9A;
+    background-color: white;
     min-height:1000px;
     flex-direction: column;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    font-size: 24pt;
+    /* font-size: 24pt; */
     color: white;  
     /* position: fixed;  */
      /* Hidden by default */
@@ -23,10 +23,72 @@
     width:100%;
 }
 .splash-slogan {
+    background-color:#3B4c9A;
     width:50%;
     display:flex;
+    flex-direction: row;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.slogan-container {
+    width: 400px;
+    display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.main-slogan {
+    font-size: 32pt;
+    font-weight: 700;
+}
+
+.sub-slogan {
+    margin-top: 40px;
+    font-size: 14pt;
+    font-weight: 200;
+}
+
+.get-started-button-container {
+    margin-top:40px;
+
+}
+
+.get-started-button {
+    text-align: center;
+    vertical-align: bottom;
+    box-sizing: border-box;
+    padding: 22px;
+    margin: 10px 0px;
+    width:200px;
+    height: 70px;
+    font-size: 15pt;
+    border-radius: 5px;
+    background-color:#3ccece;
+    color: white;
+    transition: 0.1s;
+}
+
+.get-started-button:hover {
+    background-color: #28a7a7;
+}
+
+.slogan-sub-links {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.slogan-sub-links  a {
+    font-size: 15pt;
+    color:#3ccece;
+    padding-right:50px;
+}
+
+.slogan-sub-links  a:hover {
+    cursor:pointer;
 }
 
 .animation-container {
@@ -34,6 +96,7 @@
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
+    background-color: #4256B2;
     /* flex-grow: 1; */
 }
 
@@ -41,6 +104,19 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+}
+
+.animation-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #4256B2;
+    height: 190px;
+}
+
+.minicram-is-for {
+    font-size: 15pt;
 }
 
 .opacity-rectangle {
@@ -80,15 +156,121 @@
     background-position: 0px -100px;
 }
 
-.grow-empty {
+.grow-bar {
     height: 5px;
-    background-color: #3B4c9A;
-    width: 0;
+    width: 0%;
+    transition: 5s;
+    background-color: gold;
+    transition: 0s;
 }
 
-.grow-full {
+.grow-bar.full {
     height: 5px;
     width:100%;
     background-color: gold;
     transition: 5s;
+}
+
+.wise-words {
+    opacity: 0;
+    transform:translate(0px,50px);
+    font-size: 14pt;
+    font-weight: 200;
+    
+}
+
+.wise-words.motion {
+    transform:translate(0px,0px);
+    opacity: 1;
+    transition: 1s;
+}
+
+.quizlet-copies {
+    padding-top:100px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.quizlet-copies > img {
+    width:800px; 
+    height:auto;
+}
+
+.splash-footer {
+    padding-top:60px;
+    background-color: #4256B2;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 11pt;
+    color: white;
+    font-weight:200;
+
+}
+
+.splash-footer-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: baseline;
+    width: 240px;
+}
+
+.splash-footer-column-header {
+    font-weight:500;
+    padding-bottom: 33px;
+}
+
+.splash-footer-column-topic {
+    padding-bottom:25px;
+}
+
+.splash-footer-column-topic:hover {
+    color:lightsteelblue;
+    cursor: pointer;
+}
+
+.splash-hr-container {
+    width:100%;
+    background-color: #4256B2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.splash-hr {
+    border-top: 2px solid lightsteelblue;
+    background-color: #4256B2;
+    width:1200px;
+}
+
+.twitter-links-container {
+    padding-top: 20px;
+    width:100%;
+    background-color: #4256B2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 20px;
+
+}
+
+.twitter-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #4256B2;
+    color:white;
+    align-items: center;
+    width: 1200px;
+    font-size: 12pt;
+    font-weight: 200;
+}
+
+.twitter-links img {
+    width:105px;
+    height: auto;
 }

@@ -3,7 +3,7 @@ import HeaderContainer from './header_container';
 import Browse from './browse';
 import CreateSetContainer from './create_set_container';
 import EditSetContainer from './edit_set_container';
-import Splash from './splash';
+import SplashContainer from './splash_container';
 import { Route, Redirect } from 'react-router-dom';
 import Goodbye from './goodbye';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
@@ -15,7 +15,7 @@ import LearnModeContainer from './learn_mode_container';
 const App = () => (
     <>
         <HeaderContainer/>
-        <Route exact path="/" component={Splash} />
+        <Route exact path="/" component={SplashContainer} />
         <Route path="/browse" component={Browse} />
         <Route path="/create" component={CreateSetContainer} />
         <ProtectedRoute path="/user/:userId" component={UserContainer} />
