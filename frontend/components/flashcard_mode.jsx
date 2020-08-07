@@ -49,7 +49,9 @@ class FlashcardMode extends React.Component{
         if (this.state.currentIndex > 1) {
             this.setState({flipCardClass: "flip-card"});
             let j = this.state.currentIndex - 1;
-            this.setState({currentIndex: j});
+            setTimeout(()=> {
+                this.setState({currentIndex: j});
+            },200);
             this.setState({rightButtonDisabled: false});
             if (j === 1) this.setState({leftButtonDisabled: true});
         }
@@ -59,7 +61,11 @@ class FlashcardMode extends React.Component{
         if (this.state.currentIndex < this.props.sets.card_count) {
             this.setState({flipCardClass: "flip-card"});
             let i = this.state.currentIndex + 1;
-            this.setState({currentIndex: i});
+            setTimeout(()=> {
+                this.setState({currentIndex: i});
+            },200);
+            // let i = this.state.currentIndex + 1;
+            // this.setState({currentIndex: i});
             this.setState({leftButtonDisabled: false});
             if (i === this.props.sets.card_count) this.setState({rightButtonDisabled: true});
         }

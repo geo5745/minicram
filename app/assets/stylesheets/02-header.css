@@ -25,6 +25,45 @@
     font-size: 10pt;
 }
 
+.header-nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* width: 60%; */
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+    width: 500px;
+    font-size: 12pt;
+    font-weight: 200;
+}
+
+.search-bar-input {
+    width: 400px;
+    border: none !important;
+    text-decoration: none;
+}
+
+.search-bar-input:hover {
+    border: none;
+    text-decoration: none;
+}
+
+.search-bar-input:focus {
+    border: none;
+    text-decoration: none;
+}
+
+.search-bar-input::placeholder {
+    color: lightsteelblue;
+    font-size: 12pt;
+    font-weight: 200;
+}
+
 #signup {
     border-radius: 5px;
     padding: 10px 20px;

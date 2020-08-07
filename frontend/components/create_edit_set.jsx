@@ -89,7 +89,7 @@ class CreateSet extends React.Component{
             headerText = "Edit your study set";
         }
         if (this.authorized) {
-            messages = <section>FOR TESTING PURPOSES - SET # {this.state.sets.id}. TO VIEW IN EDIT MODE GO TO '/#/set/{this.state.sets.id}/edit'</section>
+            //messages = <section>FOR TESTING PURPOSES - SET # {this.state.sets.id}. TO VIEW IN EDIT MODE GO TO '/#/set/{this.state.sets.id}/edit'</section>
         } else {
             messages = <section>YOU ARE NOT AUTHORIZED TO EDIT THIS SET, LOG IN AS THE SET CREATOR</section>
         }

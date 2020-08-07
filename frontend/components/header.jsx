@@ -10,7 +10,8 @@ class Header extends React.Component {
         super(props)
 
         this.state = {
-            sendToUser: false
+            sendToUser: false,
+            searchBar: false
         }
 
 
@@ -28,6 +29,14 @@ class Header extends React.Component {
         //this.setState({goodbye: true})
     }
 
+    openSearchBar() {
+        this.setState({searchBar: true});
+    }
+
+    closeSearchBar() {
+        this.setState({searchBar: false});
+    }
+
     loginDemo () {
         this.props.login(demo);
         this.setState({sendToUser: true});
@@ -42,7 +51,26 @@ class Header extends React.Component {
         const demoButton = (<button id="demo" onClick={this.loginDemo}>Demo Log in</button>)
         const signupButton = (<button  id="signup" onClick={this.props.openSignup}>Sign up</button>);
         //const logoutButton = (<button id="logout" onClick={this.handleLogout}>Log out</button>);
-        const logoutButton = (<Link className ="goldbutton" onClick={this.handleLogout} to="/goodbye">Log out</Link>)
+        const logoutButton = (<Link className ="goldbutton" onClick={this.handleLogout} to="/goodbye">Log out</Link>);
+
+        const searchBarOpen = (
+            <div className = "search-bar">
+                <div className="search-fa-container"></div>
+                <div className="search-input-container">
+                    <input placeholder="Don't search..." className = "search-bar-input" type="text"/>
+                </div>
+                <div className="exit-search-button">
+                    <button onClick={()=>this.closeSearchBar()}>X</button>
+                </div>
+            </div>
+        )
+
+        const headerNavList = (
+                    <ul className="header-nav-list">
+                        <li><Link onClick={()=>this.openSearchBar()}><i className="fa fa-search" aria-hidden="true"></i>  Search</Link></li>
+                        <li><a className="inactive" ><i className="fa fa-bars" aria-hidden="true"></i>  Browse</a></li>
+                        <li><Link to="/create"><i className="fa fa-clone" aria-hidden="true"></i>  Create</Link></li>
+                    </ul>)
         
         if (id) {
             currentUsername = (<Link to={`/user/${this.props.session.id}`}>{this.props.users[id].username}</Link>);
@@ -53,11 +81,12 @@ class Header extends React.Component {
             <header className="header">
                 <nav className="header-nav">
                     <h1 className="header-nav-logo">minicram</h1>
-                    <ul className="header-nav-list">
+                    {this.state.searchBar ? searchBarOpen : headerNavList}
+                    {/* <ul className="header-nav-list">
                         <li><Link to="/"><i className="fa fa-search" aria-hidden="true"></i>  Search</Link></li>
-                        <li><Link to="/browse"><i className="fa fa-bars" aria-hidden="true"></i>  Browse</Link></li>
+                        <li><a className="inactive" ><i className="fa fa-bars" aria-hidden="true"></i>  Browse</a></li>
                         <li><Link to="/create"><i className="fa fa-clone" aria-hidden="true"></i>  Create</Link></li>
-                    </ul>
+                    </ul> */}
                 </nav>
                 <div className="header-buttons">
                     {currentUsername}

@@ -59,6 +59,10 @@
     padding-bottom: 10px;
     border-bottom: 2px solid black;
     transition: 0.2s;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .new-card-content input[type="text"]:focus {
@@ -66,22 +70,29 @@
     padding-bottom: 8px;
 }
 
+.term-container {
+    width:45%;
+}
+
 .term-input-container > input {
-    width:570px;
+    /* width:570px; */
+    width:100%
 }
 
 .definition-container {
     display:block;
-    width:100%
+    /* width:100% */
+    width:40%;
 }
 
 .definition-input-container {
     display:block;
-    width:100%
+    /* width:100% */
 }
 
 .definition-input-container > input {
-    width: 100%;
+    /* width: 100%; */
+    width:100%;
 }
 
 .labels-container {

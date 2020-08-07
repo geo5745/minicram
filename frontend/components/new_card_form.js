@@ -43,7 +43,7 @@ class NewCardForm extends React.Component {
         return (
             <div className = "new-card-container">
                 <div className = "new-card-header">
-                    <div className = "new-card-number">{this.props.count} - FOR TESTING CARD # {this.state.id}</div>
+                    <div className = "new-card-number">{this.props.count} {/*`- FOR TESTING CARD # [this.state.id]`*/}</div>
                     <div className = "new-card-formatting-buttons">
                         <button className="inactive"><i className="fa fa-font" aria-hidden="true"></i></button>
                         <button className="inactive paint"><i className="fa fa-paint-brush" aria-hidden="true"></i></button>
@@ -66,13 +66,13 @@ class NewCardForm extends React.Component {
                         </div>
                     </div>
                     <div className="definition-container">
-                    <div className = "definition-input-container">
+                        <div className = "definition-input-container">
                             <input onChange = {this.props.authorized ? ({target: {value}} ) => this.debouncedUpdate("definition",value) : null} type="text" value={this.state.definition || ''}/>
                         </div>
-                    <div className = "labels-container">
-                        <div className="input-label">DEFINITION</div>
+                        <div className = "labels-container">
+                            <div className="input-label">DEFINITION</div>
                         <div className="choose-language-label"><a className = "inactive" href="#">CHOOSE LANGUAGE</a></div>
-                    </div>
+                        </div>
                     </div>
                     <div className="image-drop-container">
                         <button className="inactive">
