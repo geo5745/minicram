@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'aws-sdk-s3'
+gem 'mathjax-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

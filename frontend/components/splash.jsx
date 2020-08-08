@@ -115,7 +115,7 @@ class Splash extends React.Component {
                         <div className = "splash-footer-column-topic">How minicram Works</div>
                         <div className = "splash-footer-column-topic">Advertise</div>
                         <div className = "splash-footer-column-topic">Privacy</div>
-                        <div className = "splash-footer-column-topic">Ad and Cookie Policy</div>
+                        <div className = "splash-footer-column-topic">\(2 \over 3\)</div>
                         <div className = "splash-footer-column-topic">Terms</div>
                     </div>
                     <div className = "splash-footer-column">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link} from 'react-router-dom';
+import MathJax from 'react-mathjax2'
 
 class FlashcardMode extends React.Component{
     constructor(props) {
@@ -110,7 +111,15 @@ class FlashcardMode extends React.Component{
                             <div onClick={this.toggleFlip} className={this.state.flipCardClass}>
                                 <div className="flip-card-inner">
                                     <div className="flip-card-front">{this.state.currentTerm}</div>
-                                    <div className="flip-card-back">{this.state.currentDefinition}</div>
+                                    <div className="flip-card-back">
+                                        <div>
+                                            <MathJax.Context input='tex'>
+                                                <div>
+                                                    <MathJax.Node>{this.state.currentDefinition}</MathJax.Node>
+                                                </div>
+                                            </MathJax.Context>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div className = "flashcards-nav">
