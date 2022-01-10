@@ -10,6 +10,9 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import UserContainer from './user_container';
 import FlashcardModeContainer from './flashcard_mode_container';
 import LearnModeContainer from './learn_mode_container';
+import Practice from './practice3';
+import QuillDemo from './react_quill_demo';
+// import Practice from './practice2';
 
 
 const App = () => (
@@ -23,6 +26,9 @@ const App = () => (
         <Route exact path="/goodbye" component={Goodbye}/>
         <Route path="/set/:setId/flashcards" component={FlashcardModeContainer}/>
         <Route path="/set/:setId/learn" component={LearnModeContainer}/>
+        <Route exact path="/practice" component={Practice}/>
+        <Route exact path="/quilldemo" component={QuillDemo}/>
+
     </>
 );
 
